@@ -316,7 +316,7 @@ function moduleParameterChanged(param) {
 function moduleValueChanged(value) {
 
     var paths = value.niceName.substring(0, 2) == "L1" ? l1ValuePaths : l2ValuePaths;
- 
+
     for (i = 0; i < paths.length; i++) {
         var valPath = paths[i];
         var val = value.get();
@@ -328,13 +328,13 @@ function moduleValueChanged(value) {
             } else if (valPath.type == "float") {
                 if (value.hasRange()) {
                     var range = value.getRange();
-                    if(value.niceName == "L1 Scale" || value.niceName == "L2 Scale") {
+                    if (value.niceName == "L1 Scale" || value.niceName == "L2 Scale") {
                         val = normalizeScaleFromValue(val);
-                    }else if (value.niceName == "L1 Playspeed" || value.niceName == "L2 Playspeed") {
+                    } else if (value.niceName == "L1 Playspeed" || value.niceName == "L2 Playspeed") {
                         val = normalizePlaySpeedFromValue(val);
-                    }else{
-                        val = (val - range[0]) / (range[1] - range[0]); 
-                    }                  
+                    } else {
+                        val = (val - range[0]) / (range[1] - range[0]);
+                    }
                 }
                 var message = "localSVPatch.SetPatchDouble(\"" + valPath.path + "\"," + val + ")";
                 sendMessage(message);
@@ -342,6 +342,33 @@ function moduleValueChanged(value) {
             } else if (valPath.type == "boolean") {
                 script.log("boolean value: " + val);
                 var message = "localSVPatch.SetPatchDouble(\"" + valPath.path + "\"," + val + ")";
+                sendMessage(message);
+            } else if (valPath.type == "point2d") {
+                var vals = value.get();
+                if (value.hasRange()) {
+                    var range = value.getRange();
+                    script.log("point2d range: " + range[0][0] + " " + range[0][1] + " " + range[1][0] + " " + range[1][1]);
+                    vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
+                    vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
+                    script.log("point2d vals: " + JSON.stringify(vals));
+                }
+                var message = "localSVPatch.SetPatchDouble(\"" + valPath.pathx + "\"," + vals[0] + ")";
+                sendMessage(message);
+                var message = "localSVPatch.SetPatchDouble(\"" + valPath.pathy + "\"," + vals[1] + ")";
+                sendMessage(message);
+            } else if (valPath.type == "point3d") {
+                var vals = value.get();
+                if (value.hasRange()) {
+                    var range = value.getRange();
+                    vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
+                    vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
+                    vals[2] = (vals[2] - range[0][2]) / (range[1][2] - range[0][2]);
+                }
+                var message = "localSVPatch.SetPatchDouble(\"" + valPath.pathx + "\"," + vals[0] + ")";
+                sendMessage(message);
+                var message = "localSVPatch.SetPatchDouble(\"" + valPath.pathy + "\"," + vals[1] + ")";
+                sendMessage(message);
+                var message = "localSVPatch.SetPatchDouble(\"" + valPath.pathz + "\"," + vals[2] + ")";
                 sendMessage(message);
             }
 
@@ -363,26 +390,26 @@ function refreshValues() {
     getLatestValues();
 }
 
-function testCommand(){
+function testCommand() {
     script.log("Test command called");
-script.log("test: " + JSON.stringify(local.values.getChild("/layerparameters/layer1/l1Playmode")));
+    script.log("test: " + JSON.stringify(local.values.getChild("/layerparameters/layer1/l1Playmode")));
 }
 
 function getLatestValues() {
     for (i = 0; i < l1ValuePaths.length; i++) {
         var valPath = l1ValuePaths[i];
         if (valPath.type == "integer" || valPath.type == "enum" || valPath.type == "boolean" || valPath.type == "float") {
-            var message = "localSVPatch.GetPatchDouble(\"" + valPath.path + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer1:" + valPath.name + ":"+ valPath.type + ":path:\"+val;UDPMsgReturn(ret + \"|\"); })";
+            var message = "localSVPatch.GetPatchDouble(\"" + valPath.path + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer1:" + valPath.name + ":" + valPath.type + ":path:\"+val;UDPMsgReturn(ret + \"|\"); })";
             sendMessage(message);
             continue;
         }
 
-        var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathx + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer1:" + valPath.name + ":"+ valPath.type + ":pathx:\"+val;UDPMsgReturn(ret + \"|\");})";
+        var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathx + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer1:" + valPath.name + ":" + valPath.type + ":pathx:\"+val;UDPMsgReturn(ret + \"|\");})";
         sendMessage(message);
-        var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathy + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer1:" + valPath.name + ":"+ valPath.type + ":pathy:\"+val;UDPMsgReturn(ret + \"|\");})";
+        var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathy + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer1:" + valPath.name + ":" + valPath.type + ":pathy:\"+val;UDPMsgReturn(ret + \"|\");})";
         sendMessage(message);
         if (valPath.type == "point3d") {
-            var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathz + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer1:" + valPath.name + ":"+ valPath.type + ":pathz:\"+val;UDPMsgReturn(ret + \"|\");})";
+            var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathz + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer1:" + valPath.name + ":" + valPath.type + ":pathz:\"+val;UDPMsgReturn(ret + \"|\");})";
             sendMessage(message);
             continue;
         }
@@ -391,17 +418,17 @@ function getLatestValues() {
     for (i = 0; i < l2ValuePaths.length; i++) {
         var valPath = l2ValuePaths[i];
         if (valPath.type == "integer" || valPath.type == "enum" || valPath.type == "boolean" || valPath.type == "float") {
-            var message = "localSVPatch.GetPatchDouble(\"" + valPath.path + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer2:" + valPath.name + ":"+ valPath.type + ":path:\"+val;UDPMsgReturn(ret + \"|\"); })";
+            var message = "localSVPatch.GetPatchDouble(\"" + valPath.path + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer2:" + valPath.name + ":" + valPath.type + ":path:\"+val;UDPMsgReturn(ret + \"|\"); })";
             sendMessage(message);
             continue;
         }
 
-        var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathx + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer2:" + valPath.name + ":"+ valPath.type + ":pathx:\"+val;UDPMsgReturn(ret + \"|\");})";
+        var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathx + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer2:" + valPath.name + ":" + valPath.type + ":pathx:\"+val;UDPMsgReturn(ret + \"|\");})";
         sendMessage(message);
-        var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathy + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer2:" + valPath.name + ":"+ valPath.type + ":pathy:\"+val;UDPMsgReturn(ret + \"|\");})";
+        var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathy + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer2:" + valPath.name + ":" + valPath.type + ":pathy:\"+val;UDPMsgReturn(ret + \"|\");})";
         sendMessage(message);
         if (valPath.type == "point3d") {
-            var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathz + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer2:" + valPath.name + ":"+ valPath.type + ":pathz:\"+val;UDPMsgReturn(ret + \"|\");})";
+            var message = "localSVPatch.GetPatchDouble(\"" + valPath.pathz + "\",function(val){var ret = \"" + local.name + ":hval:/layerParameters/layer2:" + valPath.name + ":" + valPath.type + ":pathz:\"+val;UDPMsgReturn(ret + \"|\");})";
             sendMessage(message);
             continue;
         }
@@ -417,113 +444,144 @@ function dataReceived(data) {
         if (entry == "") continue;
         var parts = entry.split(":");
         if (parts.length == 7) {
-            if(parts[0] != local.name) continue; // message is not for this module
+            if (parts[0] != local.name) continue; // message is not for this module
             if (parts[1] != "hval") continue; // message is not a value update
             var controlPath = parts[2];
             var name = parts[3];
             var type = parts[4];
             var pathname = parts[5];
             var value = parseFloat(parts[6]);
-            updateValue(controlPath, name,type,pathname, value);
+            updateValue(controlPath, name, type, pathname, value);
         }
     }
 }
 
-function updateValue(path,name,type,pathname, value) {
+function updateValue(path, name, type, pathname, value) {
     var parent = local.values.getChild(path);
-        var controllables = parent.getControllables();
-        for (var j = 0; j < controllables.length; j++) {
-            var controllable = controllables[j];
-            if (controllable.niceName == name) {
+    var controllables = parent.getControllables();
+    for (var j = 0; j < controllables.length; j++) {
+        var controllable = controllables[j];
+        if (controllable.niceName == name) {
 
-                    if(type == "integer" || type == "boolean") {
-                        controllable.set(value);
-                        return;
-                }
-                if(type == "enum") {
-value = controllable.getOptionAt(value); 
-controllable.set(value.key);
-                    return;
+            if (type == "integer" || type == "boolean") {
+                controllable.set(value);
+                return;
+            }
+            if (type == "enum") {
+                value = controllable.getOptionAt(value);
+                controllable.set(value.key);
+                return;
+            }
+            if (type == "float") {
+                if (name == "L1 Scale" || name == "L2 Scale") {
+                    value = calculateScaleFromNormalised(value);
+                } else if (name == "L1 Playspeed" || name == "L2 Playspeed") {
+                    value = calculatePlaySpeedFromNormalised(value);
+                } else {
+                    if (controllable.hasRange()) {
+                        var range = controllable.getRange();
+                        value = range[0] + (value * (range[1] - range[0]));
                     }
-                if(type == "float") {
-                        if(name == "L1 Scale" || name == "L2 Scale") {
-                            value = calculateScaleFromNormalised(value);
-                        }else if (name == "L1 Playspeed" || name == "L2 Playspeed") {
-                            value = calculatePlaySpeedFromNormalised(value);
-                        }else{
-                            if(controllable.hasRange()){
-                                var range = controllable.getRange();
-                            value = range[0] + (value * (range[1] - range[0]));
-                            }
-                        }
-                    controllable.set(value);
-                    return;
                 }
-                if(type == "point2d") {
+                controllable.set(value);
+                return;
+            }
+            if (type == "point2d") {
 
-                    var vals = controllable.get();
-                    if(pathname == "pathx") {
-vals[0] = value;
-                    }else if(pathname == "pathy") {
-vals[1] = value;
+                var vals = controllable.get();
+                if (controllable.hasRange()) {
+                    var range = controllable.getRange();
+                    if (pathname === "pathx") {
+                        vals[0] = ((range[1][0] - range[0][0]) * value) + range[0][0];
+                    } else if (pathname === "pathy") {
+                        vals[1] = ((range[1][1] - range[0][1]) * value) + range[0][1];;
                     }
-                    controllable.set(vals);
+                    controllable.set(vals[0], vals[1]);
                     return;
-                }
-                if(type == "point3d") {
 
-                    var vals = controllable.get();
-                    if(pathname == "pathx") {
-vals[0] = value;
-                    }else if(pathname == "pathy") {
-vals[1] = value;
-                    }else if(pathname == "pathz") {
-                        vals[2] = value;
-                                            }
-                    controllable.set(vals);
+                } else {
+                    if (pathname === "pathx") {
+                        vals[0] = value;
+                    } else if (pathname === "pathy") {
+                        vals[1] = value;
+                    }
+                    controllable.set(vals[0], vals[1]);
                     return;
                 }
             }
+            if (type == "point3d") {
+
+                var vals = controllable.get();
+                script.log("point3d vals: for " + name + "," + pathname + " is" + JSON.stringify(vals));
+                /*   if (controllable.hasRange()) {
+                                    var range = controllable.getRange();
+                                    //  vals[0] = ((range[1][0] - range[0][0]) * vals[0]) + range[0][0];
+                                    //  vals[1] = ((range[1][1] - range[0][1]) * vals[1]) + range[0][1];
+                                    // vals[2] = ((range[1][2] - range[0][2]) * vals[2]) + range[0][2];
+                                    script.log("yweeeeeeeeeeeeees vals: for " + name + "," + pathname + " is" + JSON.stringify(vals));
+                                    script.log("point3d range: " + range[0][0] + " " + range[0][1] + " " + range[0][2] + " " + range[1][0] + " " + range[1][1] + " " + range[1][2]);
+                                    if (pathname === "pathx") {
+                                        vals[0] = ((range[1][0] - range[0][0]) * value) + range[0][0];
+                                    } else if (pathname === "pathy") {
+                                        vals[1] = ((range[1][1] - range[0][1]) * value) + range[0][1];
+                                    } else if (pathname === "pathz") {
+                                        vals[2] = ((range[1][2] - range[0][2]) * value) + range[0][2];
+                                    }
+                                    script.log("point3d vals: for: " + name + "----" + JSON.stringify(vals));
+                                    controllable.set(vals[0], vals[1], vals[2]);
+                                    return;
+                
+                                } else {
+                                    if (pathname === "pathx") {
+                                        vals[0] = value;
+                                    } else if (pathname === "pathy") {
+                                        vals[1] = value;
+                                    } else if (pathname === "pathz") {
+                                        vals[2] = value;
+                                    }
+                                    controllable.set(vals[0], vals[1], vals[2]);
+                                    return;
+                                }
+                */
+            }
         }
+    }
 }
 
 
-    function normalizeScaleFromValue(scale) {
-		var newVal = 0.0;
-		if (scale <= 100)
-			{newVal = (scale / 100.0) * 0.5 ;}// 0 -> 0.5
-		else {newVal = 0.5 + ((scale - 100) / 900.0) * 0.5;} // 0.5 -> 1.0
+function normalizeScaleFromValue(scale) {
+    var newVal = 0.0;
+    if (scale <= 100) { newVal = (scale / 100.0) * 0.5; }// 0 -> 0.5
+    else { newVal = 0.5 + ((scale - 100) / 900.0) * 0.5; } // 0.5 -> 1.0
 
-		return newVal;
-	}
+    return newVal;
+}
 
-	function calculateScaleFromNormalised(scalenormalised) {
-		var newVal = 0.0;
+function calculateScaleFromNormalised(scalenormalised) {
+    var newVal = 0.0;
 
-		if (scalenormalised < 0.5){
-			newVal = scalenormalised * 200.0;
-         } // 0..100
-		else {newVal = 100.0 + ((scalenormalised - 0.5) / 0.5) * 900.0;} // 100.. 1000
+    if (scalenormalised < 0.5) {
+        newVal = scalenormalised * 200.0;
+    } // 0..100
+    else { newVal = 100.0 + ((scalenormalised - 0.5) / 0.5) * 900.0; } // 100.. 1000
 
-		return Math.round(newVal)
-	}
+    return Math.round(newVal)
+}
 
-	function normalizePlaySpeedFromValue(playspeed) {
-		var newVal = 0.0;
+function normalizePlaySpeedFromValue(playspeed) {
+    var newVal = 0.0;
 
-		if (playspeed <= 100)
-			{newVal = (playspeed / 100.0) * 0.5;}// 0 -> 0.5
-		else {newVal = 0.5 + ((playspeed - 100.0) / 900.0) * 0.5;} // 0.5 -> 1.0
+    if (playspeed <= 100) { newVal = (playspeed / 100.0) * 0.5; }// 0 -> 0.5
+    else { newVal = 0.5 + ((playspeed - 100.0) / 900.0) * 0.5; } // 0.5 -> 1.0
 
-		return newVal
-	}
+    return newVal
+}
 
-	function calculatePlaySpeedFromNormalised(playspeednormalised) {
-		var newVal = 0.0;
+function calculatePlaySpeedFromNormalised(playspeednormalised) {
+    var newVal = 0.0;
 
-		if (playspeednormalised < 0.5)
-			{newVal = playspeednormalised * 200.0;} // 0..100
-		else {newVal = 100.0 + ((playspeednormalised - 0.5) / 0.5) * 900.0;} // 100.. 1000
+    if (playspeednormalised < 0.5) { newVal = playspeednormalised * 200.0; } // 0..100
+    else { newVal = 100.0 + ((playspeednormalised - 0.5) / 0.5) * 900.0; } // 100.. 1000
 
-		return Math.round(newVal);
-	}
+    return Math.round(newVal);
+}
