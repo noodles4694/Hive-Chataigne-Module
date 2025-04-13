@@ -1,0 +1,539 @@
+{
+  "name": "Hive Beeblade",
+  "type": "UDP",
+  "path": "Software",
+
+  "version": "1.0.0",
+  "description": "A module for controlling Hive Beeblade, Beebox or Nexus media engines",
+  "url": "https://github.com/tommag/Sample-Chataigne-module",
+  "downloadURL": "https://github.com/tommag/Sample-Chataigne-module/archive/master.zip",
+
+  "hasInput": true,
+  "hasOutput": true,
+
+  "hideDefaultCommands": false,
+
+  "defaults": {
+    "autoAdd": false,
+    "protocol": "Direct",
+    "Input": {
+      "localPort": 8083
+    },
+    "Output": {
+      "local": false,
+      "remotePort": 8083,
+      "remoteHost": "192.168.0.30"
+    }
+  },
+
+  "parameters": {
+    "Device IP": {
+      "type": "String"
+    }
+  },
+
+  "hideDefaultParameters": [
+    "autoAdd",
+    "protocol",
+    "Input",
+    "Output",
+    "messageStructure",
+    "customSeparator",
+    "multicastMode",
+    "firstValueIsTheName"
+  ],
+
+  "scripts": ["beebladeScript.js"],
+
+  "values": {
+    "Layer Parameters": {
+      "type": "Container",
+      "collapsed": true,
+      "Layer 1": {
+        "type": "Container",
+        "collapsed": true,
+
+        "L1 Intensity": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 100,
+          "path": "LAYER #/INTENSITY/Value"
+        },
+        "L1 Folder": {
+          "type": "Integer",
+          "min": 0,
+          "max": 9999,
+          "default": 0
+        },
+        "L1 File": {
+          "type": "Integer",
+          "min": 0,
+          "max": 9999,
+          "default": 0
+        },
+        "L1 InFrame": {
+          "type": "Integer",
+          "min": 0,
+          "max": 9999999,
+          "default": 0
+        },
+        "L1 OutFrame": {
+          "type": "Integer",
+          "min": 0,
+          "max": 9999999,
+          "default": 9999999
+        },
+        "L1 Playmode": {
+          "type": "Enum",
+          "options": {
+            "In Frame": 0,
+            "Out Frame": 1,
+            "Loop Forwards": 2,
+            "Loop Backwards": 3,
+            "Play Once Forwards": 4,
+            "Play Once Backwards": 5,
+            "Stop": 6,
+            "Pause": 7,
+            "Bounce": 8,
+            "Take Over Frame": 9,
+            "Loop Forward, Pause I=0": 10,
+            "Loop Backwards, Pause I=0": 11,
+            "Play Once Forward, Pause I=0": 12,
+            "Play Once Backwards, Pause I=0": 13,
+            "Bounce, Pause I=0": 15,
+            "Timecode Sync": 20,
+            "Loop Forward, Re-Trigger I>0": 40,
+            "Loop Backwards, Re-Trigger I>0": 41,
+            "Play Once Forward, Re-Trigger I>0": 42,
+            "Play Once Backwards, Re-Trigger I>0": 43,
+            "Bounce, Re-Trigger I>0": 45
+          },
+          "default": 2
+        },
+        "L1 Framingmode": {
+          "type": "Enum",
+          "options": {
+            "Letterbox": 0,
+            "Crop": 1,
+            "Stretch": 2,
+            "Multi Letterbox": 3,
+            "Centred": 4
+          },
+          "default": 0
+        },
+        "L1 Blendmode": {
+          "type": "Enum",
+          "options": {
+            "Alpha": 0,
+            "Additive": 1,
+            "Multiply": 2,
+            "Difference": 3,
+            "Screen": 4,
+            "Preserve Luma": 5,
+            "Rectangle Wipe": 6,
+            "Triangle Wipe": 7
+          },
+          "default": 0
+        },
+        "L1 LUT": {
+          "type": "Integer",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L1 Playspeed": {
+          "type": "Float",
+          "min": 0,
+          "max": 1000,
+          "default": 100
+        },
+        "L1 Movementspeed": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L1 TC Hour": {
+          "type": "Integer",
+          "min": 0,
+          "max": 23,
+          "default": 0
+        },
+        "L1 TC Minute": {
+          "type": "Integer",
+          "min": 0,
+          "max": 59,
+          "default": 0
+        },
+        "L1 TC Second": {
+          "type": "Integer",
+          "min": 0,
+          "max": 59,
+          "default": 0
+        },
+        "L1 TC Frame": {
+          "type": "Integer",
+          "min": 0,
+          "max": 29,
+          "default": 0
+        },
+        "L1 Scale": {
+          "type": "Float",
+          "min": 0,
+          "max": 1000,
+          "default": 100
+        },
+        "L1 Aspect": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L1 Position": {
+          "type": "Point2D",
+          "min": [-100, -100],
+          "max": [100, 100],
+          "default": [0, 0]
+        },
+        "L1 Rotation": {
+          "type": "Point3D",
+          "min": [-1440, -1440, -1440],
+          "max": [1440, 1440, 1440],
+          "default": [0, 0, 0]
+        },
+        "L1 RGB": {
+          "type": "Point3D",
+          "min": [-100, -100, -100],
+          "max": [100, 100, 100],
+          "default": [0, 0, 0]
+        },
+        "L1 Hue": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L1 Saturation": {
+          "type": "Float",
+          "min": -100,
+          "max": 100,
+          "default": 0
+        },
+        "L1 Contrast": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L1 Strobe": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L1 Volume": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 100
+        },
+        "L1 Frameblending": {
+          "type": "Boolean",
+          "default": true
+        },
+        "L1 Transition Duration": {
+          "type": "Integer",
+          "min": 0,
+          "max": 65535,
+          "default": 0
+        },
+        "L1 Transitionmode": {
+          "type": "Enum",
+          "options": {
+            "Alpha": 0,
+            "Additive": 1,
+            "Multiply": 2,
+            "Difference": 3,
+            "Screen": 4,
+            "Preserve luma": 5,
+            "Rectangle Wipe": 6,
+            "Triangle Wipe": 7,
+            "Minimum": 8,
+            "Maximum": 9,
+            "Subtract": 10,
+            "Darken": 11,
+            "Lighten": 12,
+            "Soft Lighten": 13,
+            "Dark Lighten": 14,
+            "Exclusion": 15,
+            "Random": 16,
+            "Ripple": 17,
+            "Threshold": 18,
+            "Sine": 19,
+            "Invert Mask": 20,
+            "Noise": 21,
+            "Swirl": 22,
+            "Gradient": 23,
+            "Pixel Sort": 24,
+            "Checkerboard": 25,
+            "Pulse": 26,
+            "Hue Shift": 27,
+            "Fractal": 28,
+            "Waveform": 29,
+            "RGB Split": 30,
+            "Glitch": 31
+          },
+          "default": 2
+        }
+      },
+      "Layer 2": {
+        "type": "Container",
+        "collapsed": true,
+        "L2 Intensity": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 100
+        },
+        "L2 Folder": {
+          "type": "Integer",
+          "min": 0,
+          "max": 9999,
+          "default": 0
+        },
+        "L2 File": {
+          "type": "Integer",
+          "min": 0,
+          "max": 9999,
+          "default": 0
+        },
+        "L2 InFrame": {
+          "type": "Integer",
+          "min": 0,
+          "max": 9999999,
+          "default": 0
+        },
+        "L2 OutFrame": {
+          "type": "Integer",
+          "min": 0,
+          "max": 9999999,
+          "default": 9999999
+        },
+        "L2 Playmode": {
+          "type": "Enum",
+          "options": {
+            "In Frame": 0,
+            "Out Frame": 1,
+            "Loop Forwards": 2,
+            "Loop Backwards": 3,
+            "Play Once Forwards": 4,
+            "Play Once Backwards": 5,
+            "Stop": 6,
+            "Pause": 7,
+            "Bounce": 8,
+            "Take Over Frame": 9,
+            "Loop Forward, Pause I=0": 10,
+            "Loop Backwards, Pause I=0": 11,
+            "Play Once Forward, Pause I=0": 12,
+            "Play Once Backwards, Pause I=0": 13,
+            "Bounce, Pause I=0": 15,
+            "Timecode Sync": 20,
+            "Loop Forward, Re-Trigger I>0": 40,
+            "Loop Backwards, Re-Trigger I>0": 41,
+            "Play Once Forward, Re-Trigger I>0": 42,
+            "Play Once Backwards, Re-Trigger I>0": 43,
+            "Bounce, Re-Trigger I>0": 45
+          },
+          "default": 2
+        },
+        "L2 Framingmode": {
+          "type": "Enum",
+          "options": {
+            "Letterbox": 0,
+            "Crop": 1,
+            "Stretch": 2,
+            "Multi Letterbox": 3,
+            "Centred": 4
+          },
+          "default": 0
+        },
+        "L2 Blendmode": {
+          "type": "Enum",
+          "options": {
+            "Alpha": 0,
+            "Additive": 1,
+            "Multiply": 2,
+            "Difference": 3,
+            "Screen": 4,
+            "Preserve Luma": 5,
+            "Rectangle Wipe": 6,
+            "Triangle Wipe": 7
+          },
+          "default": 0
+        },
+        "L2 LUT": {
+          "type": "Integer",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L2 Playspeed": {
+          "type": "Float",
+          "min": 0,
+          "max": 1000,
+          "default": 100
+        },
+        "L2 Movementspeed": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L2 TC Hour": {
+          "type": "Integer",
+          "min": 0,
+          "max": 23,
+          "default": 0
+        },
+        "L2 TC Minute": {
+          "type": "Integer",
+          "min": 0,
+          "max": 59,
+          "default": 0
+        },
+        "L2 TC Second": {
+          "type": "Integer",
+          "min": 0,
+          "max": 59,
+          "default": 0
+        },
+        "L2 TC Frame": {
+          "type": "Integer",
+          "min": 0,
+          "max": 29,
+          "default": 0
+        },
+        "L2 Scale": {
+          "type": "Float",
+          "min": 0,
+          "max": 1000,
+          "default": 100
+        },
+        "L2 Aspect": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L2 Position": {
+          "type": "Point2D",
+          "min": [-100, -100],
+          "max": [100, 100],
+          "default": [0, 0]
+        },
+        "L2 Rotation": {
+          "type": "Point3D",
+          "min": [-1440, -1440, -1440],
+          "max": [1440, 1440, 1440],
+          "default": [0, 0, 0]
+        },
+        "L2 RGB": {
+          "type": "Point3D",
+          "min": [-100, -100, -100],
+          "max": [100, 100, 100],
+          "default": [0, 0, 0]
+        },
+        "L2 Hue": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L2 Saturation": {
+          "type": "Float",
+          "min": -100,
+          "max": 100,
+          "default": 0
+        },
+        "L2 Contrast": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L2 Strobe": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 0
+        },
+        "L2 Volume": {
+          "type": "Float",
+          "min": 0,
+          "max": 100,
+          "default": 100
+        },
+        "L2 Frameblending": {
+          "type": "Boolean",
+          "default": true
+        },
+        "L2 Transition Duration": {
+          "type": "Integer",
+          "min": 0,
+          "max": 65535,
+          "default": 0
+        },
+        "L2 Transitionmode": {
+          "type": "Enum",
+          "options": {
+            "Alpha": 0,
+            "Additive": 1,
+            "Multiply": 2,
+            "Difference": 3,
+            "Screen": 4,
+            "Preserve luma": 5,
+            "Rectangle Wipe": 6,
+            "Triangle Wipe": 7,
+            "Minimum": 8,
+            "Maximum": 9,
+            "Subtract": 10,
+            "Darken": 11,
+            "Lighten": 12,
+            "Soft Lighten": 13,
+            "Dark Lighten": 14,
+            "Exclusion": 15,
+            "Random": 16,
+            "Ripple": 17,
+            "Threshold": 18,
+            "Sine": 19,
+            "Invert Mask": 20,
+            "Noise": 21,
+            "Swirl": 22,
+            "Gradient": 23,
+            "Pixel Sort": 24,
+            "Checkerboard": 25,
+            "Pulse": 26,
+            "Hue Shift": 27,
+            "Fractal": 28,
+            "Waveform": 29,
+            "RGB Split": 30,
+            "Glitch": 31
+          },
+          "default": 2
+        }
+      }
+    }
+  },
+
+  "commands": {
+    "Update Values": {
+      "menu": "",
+      "callback": "refreshValues"
+    },
+    "Test": {
+      "menu": "",
+      "callback": "testCommand"
+    }
+  }
+}
