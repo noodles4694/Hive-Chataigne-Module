@@ -320,23 +320,59 @@ function moduleValueChanged(value) {
 		} else if (value.niceName == "Send To Workers") {
 			var message =
 				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
-			script.log(message);
 			sendMessage(message);
 			return;
 		} else if (value.niceName == "Target Layer") {
 			var message =
 				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/targetLayer","value":' + value.get() + "}])";
-			script.log(message);
 			sendMessage(message);
 			return;
 		} else if (value.niceName == "Transition Time") {
 			var message =
 				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/transitionDuration","value":' + value.get() + "}])";
-			script.log(message);
 			sendMessage(message);
 			return;
 		}
 
+	} else if (parent == "Timecode Cue List") {
+		if (value.niceName == "Layer 1 Enabled") {
+			setTCPlaylistEnabled(0, value.get());
+		} else if (value.niceName == "Layer 2 Enabled") {
+			setTCPlaylistEnabled(1, value.get());
+		} else if (value.niceName == "Send To Workers") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Timecode Clock") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/clockSource","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Timecode Offsets") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/offsetSource","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Ignore Audio") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/ignoreAudio","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Global Frame Adjustment") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/globalAdjust","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "TC Range Filter") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/useTCRangeFilter","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Source IP") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/artnetTimecodeSourceIPAddress","value":"' + value.get() + '"}])"';
+			sendMessage(message);
+			script.log(message);
+		} else if (value.niceName == "Glitch Protection") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/useTCGlitchProtection","value":' + value.get() + "}])";
+			sendMessage(message);
+		}
 	}
 	else if (parent == "Layer 1" || parent == "Layer 2") {
 		var paths =
@@ -432,7 +468,12 @@ function moduleValueChanged(value) {
 function setPlaylistEnabled(enabled) {
 	var message =
 		'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/usePlayList","value":' + enabled + "}])";
-	script.log(message);
+	sendMessage(message);
+}
+
+function setTCPlaylistEnabled(layer, enabled) {
+	var message =
+		'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/layers/' + layer + '/useCueList","value":' + enabled + "}])";
 	sendMessage(message);
 }
 // Helpers
@@ -594,7 +635,6 @@ function getLatestLayerValues() {
 }
 
 function dataReceived(data) {
-	script.log("Data received: " + data);
 	var entries = data.split("|");
 	for (var i = 0; i < entries.length; i++) {
 		var entry = entries[i];

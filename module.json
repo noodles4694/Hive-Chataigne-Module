@@ -612,6 +612,62 @@
           },
           "default": 1
         }
+      },
+      "Timecode Cue List": {
+        "type": "Container",
+        "collapsed": true,
+        "Layer 1 Enabled": {
+          "type": "Boolean",
+          "default": false
+        },
+        "Layer 2 Enabled": {
+          "type": "Boolean",
+          "default": false
+        },
+        "Send To Workers": {
+          "type": "Boolean",
+          "default": true
+        },
+        "Timecode Clock": {
+          "type": "Enum",
+          "options": {
+            "USB MTC": 0,
+            "Internal": 1,
+            "Artnet TC": 2,
+            "LTC on XLR": 3
+          },
+          "default": 2
+        },
+        "Timecode Offsets": {
+          "type": "Enum",
+          "options": {
+            "Cuelist": 0,
+            "Layer": 1
+          },
+          "default": 0
+        },
+        "Ignore Audio": {
+          "type": "Boolean",
+          "default": false
+        },
+        "Global Frame Adjustment": {
+          "type": "Integer",
+          "min": -30,
+          "max": 30,
+          "default": 0
+        },
+        "TC Range Filter": {
+          "type": "Boolean",
+          "default": false
+        },
+        "Source IP": {
+          "type": "String",
+          "default": "AUTO"
+        },
+        "Glitch Protection": {
+          "type": "Boolean",
+          "default": false
+        }
       }
     }
   },
