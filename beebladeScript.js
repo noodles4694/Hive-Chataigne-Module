@@ -293,9 +293,11 @@ var l2ValuePaths = [
 	},
 ];
 
+var valuesUpdating = false;
+
 function init() {
 	script.log("Hive Beeblade module init");
-	getLatestValues();
+	getLatestLayerValues();
 }
 
 function moduleParameterChanged(param) {
@@ -303,98 +305,135 @@ function moduleParameterChanged(param) {
 	if (param.name === "deviceIP") {
 		local.parameters.output.remoteHost.set(param.get());
 		script.log("Device IP changed to: " + param.get());
-		refreshValues();
+		refreshLayerValues();
 	}
 }
 
 function moduleValueChanged(value) {
-	var paths =
-		value.niceName.substring(0, 2) == "L1" ? l1ValuePaths : l2ValuePaths;
+	if (valuesUpdating) return; // Prevents infinite loop when updating values
+	var parent = value.getParent().niceName;
 
-	for (i = 0; i < paths.length; i++) {
-		var valPath = paths[i];
-		var val = value.get();
-		if (valPath.name === value.niceName) {
-			if (valPath.type == "integer" || valPath.type == "enum") {
-				var message =
-					'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
-				sendMessage(message);
-				return;
-			} else if (valPath.type == "float") {
-				if (value.hasRange()) {
-					var range = value.getRange();
-					if (value.niceName == "L1 Scale" || value.niceName == "L2 Scale") {
-						val = normalizeScaleFromValue(val);
-					} else if (
-						value.niceName == "L1 Playspeed" ||
-						value.niceName == "L2 Playspeed"
-					) {
-						val = normalizePlaySpeedFromValue(val);
-					} else {
-						val = (val - range[0]) / (range[1] - range[0]);
+	if (parent == "Playlist") {
+		if (value.niceName == "Enabled") {
+			setPlaylistEnabled(value.get());
+			return;
+		} else if (value.niceName == "Send To Workers") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
+			script.log(message);
+			sendMessage(message);
+			return;
+		} else if (value.niceName == "Target Layer") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/targetLayer","value":' + value.get() + "}])";
+			script.log(message);
+			sendMessage(message);
+			return;
+		} else if (value.niceName == "Transition Time") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/transitionDuration","value":' + value.get() + "}])";
+			script.log(message);
+			sendMessage(message);
+			return;
+		}
+
+	}
+	else if (parent == "Layer 1" || parent == "Layer 2") {
+		var paths =
+			value.niceName.substring(0, 2) == "L1" ? l1ValuePaths : l2ValuePaths;
+
+		for (i = 0; i < paths.length; i++) {
+			var valPath = paths[i];
+			var val = value.get();
+			if (valPath.name === value.niceName) {
+				if (valPath.type == "integer" || valPath.type == "enum") {
+					var message =
+						'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
+					sendMessage(message);
+					return;
+				} else if (valPath.type == "float") {
+					if (value.hasRange()) {
+						var range = value.getRange();
+						if (value.niceName == "L1 Scale" || value.niceName == "L2 Scale") {
+							val = normalizeScaleFromValue(val);
+						} else if (
+							value.niceName == "L1 Playspeed" ||
+							value.niceName == "L2 Playspeed"
+						) {
+							val = normalizePlaySpeedFromValue(val);
+						} else {
+							val = (val - range[0]) / (range[1] - range[0]);
+						}
 					}
+					var message =
+						'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
+					sendMessage(message);
+					return;
+				} else if (valPath.type == "boolean") {
+					var message =
+						'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
+					sendMessage(message);
+				} else if (valPath.type == "point2d") {
+					var vals = value.get();
+					if (value.hasRange()) {
+						var range = value.getRange();
+						vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
+						vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
+					}
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathx +
+						'",' +
+						vals[0] +
+						")";
+					sendMessage(message);
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathy +
+						'",' +
+						vals[1] +
+						")";
+					sendMessage(message);
+				} else if (valPath.type == "point3d") {
+					var vals = value.get();
+					if (value.hasRange()) {
+						var range = value.getRange();
+						vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
+						vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
+						vals[2] = (vals[2] - range[0][2]) / (range[1][2] - range[0][2]);
+					}
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathx +
+						'",' +
+						vals[0] +
+						")";
+					sendMessage(message);
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathy +
+						'",' +
+						vals[1] +
+						")";
+					sendMessage(message);
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathz +
+						'",' +
+						vals[2] +
+						")";
+					sendMessage(message);
 				}
-				var message =
-					'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
-				sendMessage(message);
-				return;
-			} else if (valPath.type == "boolean") {
-				var message =
-					'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
-				sendMessage(message);
-			} else if (valPath.type == "point2d") {
-				var vals = value.get();
-				if (value.hasRange()) {
-					var range = value.getRange();
-					vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
-					vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
-				}
-				var message =
-					'localSVPatch.SetPatchDouble("' +
-					valPath.pathx +
-					'",' +
-					vals[0] +
-					")";
-				sendMessage(message);
-				var message =
-					'localSVPatch.SetPatchDouble("' +
-					valPath.pathy +
-					'",' +
-					vals[1] +
-					")";
-				sendMessage(message);
-			} else if (valPath.type == "point3d") {
-				var vals = value.get();
-				if (value.hasRange()) {
-					var range = value.getRange();
-					vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
-					vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
-					vals[2] = (vals[2] - range[0][2]) / (range[1][2] - range[0][2]);
-				}
-				var message =
-					'localSVPatch.SetPatchDouble("' +
-					valPath.pathx +
-					'",' +
-					vals[0] +
-					")";
-				sendMessage(message);
-				var message =
-					'localSVPatch.SetPatchDouble("' +
-					valPath.pathy +
-					'",' +
-					vals[1] +
-					")";
-				sendMessage(message);
-				var message =
-					'localSVPatch.SetPatchDouble("' +
-					valPath.pathz +
-					'",' +
-					vals[2] +
-					")";
-				sendMessage(message);
 			}
 		}
 	}
+}
+
+function setPlaylistEnabled(enabled) {
+	var message =
+		'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/usePlayList","value":' + enabled + "}])";
+	script.log(message);
+	sendMessage(message);
 }
 // Helpers
 function sendMessage(message) {
@@ -407,19 +446,32 @@ function customCmd(val) {
 	local.parameters.moduleParam.set(val);
 }
 
-function refreshValues() {
-	getLatestValues();
+function refreshLayerValues() {
+	getLatestLayerValues();
+}
+
+function refreshModuleValues() {
+	getLatestModuleValues();
 }
 
 function testCommand() {
 	script.log("Sending test message");
 	var message =
-		'localSVPatch.GetPatchDoubleWithDescriptor("LAYER 1/FILE SELECT/Value",UDPMsgReturn)';
+		'localSVPatch.GetPatchJSONWithDescriptor("/Play List",UDPMsgReturn)';
 	sendMessage(message);
 	script.log("Message sent");
 }
 
-function getLatestValues() {
+function getLatestModuleValues() {
+	var message =
+		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
+		local.name +
+		'~playlist~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
+}
+
+function getLatestLayerValues() {
 	for (i = 0; i < l1ValuePaths.length; i++) {
 		var valPath = l1ValuePaths[i];
 		if (
@@ -433,11 +485,11 @@ function getLatestValues() {
 				valPath.path +
 				'",function(val){var ret = "' +
 				local.name +
-				":hval:/layerParameters/layer1:" +
+				"~hval~/layerParameters/layer1~" +
 				valPath.name +
-				":" +
+				"~" +
 				valPath.type +
-				':path:"+val;UDPMsgReturn(ret + "|"); })';
+				'~path~"+val;UDPMsgReturn(ret + "|"); })';
 			sendMessage(message);
 			continue;
 		}
@@ -447,22 +499,22 @@ function getLatestValues() {
 			valPath.pathx +
 			'",function(val){var ret = "' +
 			local.name +
-			":hval:/layerParameters/layer1:" +
+			"~hval~/layerParameters/layer1~" +
 			valPath.name +
-			":" +
+			"~" +
 			valPath.type +
-			':pathx:"+val;UDPMsgReturn(ret + "|");})';
+			'~pathx~"+val;UDPMsgReturn(ret + "|");})';
 		sendMessage(message);
 		var message =
 			'localSVPatch.GetPatchDouble("' +
 			valPath.pathy +
 			'",function(val){var ret = "' +
 			local.name +
-			":hval:/layerParameters/layer1:" +
+			"~hval~/layerParameters/layer1~" +
 			valPath.name +
-			":" +
+			"~" +
 			valPath.type +
-			':pathy:"+val;UDPMsgReturn(ret + "|");})';
+			'~pathy~"+val;UDPMsgReturn(ret + "|");})';
 		sendMessage(message);
 		if (valPath.type == "point3d") {
 			var message =
@@ -470,11 +522,11 @@ function getLatestValues() {
 				valPath.pathz +
 				'",function(val){var ret = "' +
 				local.name +
-				":hval:/layerParameters/layer1:" +
+				"~hval~/layerParameters/layer1~" +
 				valPath.name +
-				":" +
+				"~" +
 				valPath.type +
-				':pathz:"+val;UDPMsgReturn(ret + "|");})';
+				'~pathz~"+val;UDPMsgReturn(ret + "|");})';
 			sendMessage(message);
 			continue;
 		}
@@ -493,11 +545,11 @@ function getLatestValues() {
 				valPath.path +
 				'",function(val){var ret = "' +
 				local.name +
-				":hval:/layerParameters/layer2:" +
+				"~hval~/layerParameters/layer2~" +
 				valPath.name +
-				":" +
+				"~" +
 				valPath.type +
-				':path:"+val;UDPMsgReturn(ret + "|"); })';
+				'~path~"+val;UDPMsgReturn(ret + "|"); })';
 			sendMessage(message);
 			continue;
 		}
@@ -507,22 +559,22 @@ function getLatestValues() {
 			valPath.pathx +
 			'",function(val){var ret = "' +
 			local.name +
-			":hval:/layerParameters/layer2:" +
+			"~hval~/layerParameters/layer2~" +
 			valPath.name +
-			":" +
+			"~" +
 			valPath.type +
-			':pathx:"+val;UDPMsgReturn(ret + "|");})';
+			'~pathx~"+val;UDPMsgReturn(ret + "|");})';
 		sendMessage(message);
 		var message =
 			'localSVPatch.GetPatchDouble("' +
 			valPath.pathy +
 			'",function(val){var ret = "' +
 			local.name +
-			":hval:/layerParameters/layer2:" +
+			"~hval~/layerParameters/layer2~" +
 			valPath.name +
-			":" +
+			"~" +
 			valPath.type +
-			':pathy:"+val;UDPMsgReturn(ret + "|");})';
+			'~pathy~"+val;UDPMsgReturn(ret + "|");})';
 		sendMessage(message);
 		if (valPath.type == "point3d") {
 			var message =
@@ -530,11 +582,11 @@ function getLatestValues() {
 				valPath.pathz +
 				'",function(val){var ret = "' +
 				local.name +
-				":hval:/layerParameters/layer2:" +
+				"~hval~/layerParameters/layer2~" +
 				valPath.name +
-				":" +
+				"~" +
 				valPath.type +
-				':pathz:"+val;UDPMsgReturn(ret + "|");})';
+				'~pathz~"+val;UDPMsgReturn(ret + "|");})';
 			sendMessage(message);
 			continue;
 		}
@@ -542,25 +594,55 @@ function getLatestValues() {
 }
 
 function dataReceived(data) {
+	script.log("Data received: " + data);
 	var entries = data.split("|");
 	for (var i = 0; i < entries.length; i++) {
 		var entry = entries[i];
 		if (entry == "") continue;
-		var parts = entry.split(":");
-		if (parts.length == 7) {
+		var parts = entry.split("~");
+		if (parts.length > 2) {
 			if (parts[0] != local.name) continue; // message is not for this module
-			if (parts[1] != "hval") continue; // message is not a value update
-			var controlPath = parts[2];
-			var name = parts[3];
-			var type = parts[4];
-			var pathname = parts[5];
-			var value = parseFloat(parts[6]);
-			updateValue(controlPath, name, type, pathname, value);
+			if (parts[1] == "hval") { // message is a layer value update
+				var controlPath = parts[2];
+				var name = parts[3];
+				var type = parts[4];
+				var pathname = parts[5];
+				var value = parseFloat(parts[6]);
+				updateValue(controlPath, name, type, pathname, value);
+			} else if (parts[1] == "playlist") { // message is a playlist value update
+				updatePlaylistValues(parts[2]);
+			}
 		}
 	}
 }
 
+function setEnumFromValue(object, value) {
+	object.set(getEnumKeyFramValue(object, value));
+}
+
+function getEnumKeyFramValue(object, value) {
+	var options = object.getAllOptions();
+	for (var i = 0; i < options.length; i++) {
+		var opt = options[i];
+		if (opt.value == value) {
+			return opt.key;
+		}
+	}
+	return null;
+}
+
+function updatePlaylistValues(jsonData) {
+	valuesUpdating = true; // Prevents infinite loop
+	var playlist = JSON.parse(jsonData);
+	local.values.modules.playlist.enabled.set(playlist.usePlayList);
+	local.values.modules.playlist.sendToWorkers.set(playlist.queenWorkerSync);
+	setEnumFromValue(local.values.modules.playlist.targetLayer, playlist.targetLayer);
+	setEnumFromValue(local.values.modules.playlist.transitionTime, playlist.transitionDuration);
+	valuesUpdating = false; // Re-enable value updates
+}
+
 function updateValue(path, name, type, pathname, value) {
+	valuesUpdating = true; // Prevents infinite loop
 	var parent = local.values.getChild(path);
 	var controllables = parent.getControllables();
 	for (var j = 0; j < controllables.length; j++) {
@@ -568,14 +650,12 @@ function updateValue(path, name, type, pathname, value) {
 		if (controllable.niceName == name) {
 			if (type == "integer" || type == "boolean") {
 				controllable.set(value);
-				return;
 			}
-			if (type == "enum") {
-				value = controllable.getOptionAt(value);
-				controllable.set(value.key);
-				return;
+			else if (type == "enum") {
+				value = getEnumKeyFramValue(controllable, value);
+				controllable.set(value);
 			}
-			if (type == "float") {
+			else if (type == "float") {
 				if (name == "L1 Scale" || name == "L2 Scale") {
 					value = calculateScaleFromNormalised(value);
 				} else if (name == "L1 Playspeed" || name == "L2 Playspeed") {
@@ -587,9 +667,8 @@ function updateValue(path, name, type, pathname, value) {
 					}
 				}
 				controllable.set(value);
-				return;
 			}
-			if (type == "point2d") {
+			else if (type == "point2d") {
 				var vals = controllable.get();
 				var x = vals[0];
 				var y = vals[1];
@@ -611,7 +690,7 @@ function updateValue(path, name, type, pathname, value) {
 				}
 				controllable.set(x, y);
 			}
-			if (type == "point3d") {
+			else if (type == "point3d") {
 				var vals = controllable.get();
 				var x = vals[0];
 				var y = vals[1];
@@ -644,6 +723,7 @@ function updateValue(path, name, type, pathname, value) {
 			}
 		}
 	}
+	valuesUpdating = false; // Re-enable value updates
 }
 
 function normalizeScaleFromValue(scale) {

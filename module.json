@@ -57,8 +57,7 @@
           "type": "Float",
           "min": 0,
           "max": 100,
-          "default": 100,
-          "path": "LAYER #/INTENSITY/Value"
+          "default": 100
         },
         "L1 Folder": {
           "type": "Integer",
@@ -523,13 +522,108 @@
           "default": 2
         }
       }
+    },
+    "Modules": {
+      "type": "Container",
+      "collapsed": true,
+      "Playlist": {
+        "type": "Container",
+        "collapsed": true,
+        "Enabled": {
+          "type": "Boolean",
+          "default": false
+        },
+        "Send To Workers": {
+          "type": "Boolean",
+          "default": true
+        },
+        "Target Layer": {
+          "type": "Enum",
+          "options": {
+            "Layer 1": 0,
+            "Layer 2": 1
+          },
+          "default": 1
+        },
+        "Transition Time": {
+          "type": "Enum",
+          "options": {
+            "None": 0,
+            "0.5 Seconds": 0.5,
+            "1 Second": 1,
+            "1.5 Seconds": 1.5,
+            "2 Seconds": 2,
+            "2.5 Seconds": 2.5,
+            "3 Seconds": 3,
+            "3.5 Seconds": 3.5,
+            "4 Seconds": 4,
+            "4.5 Seconds": 4.5,
+            "5 Seconds": 5,
+            "5.5 Seconds": 5.5,
+            "6 Seconds": 6,
+            "6.5 Seconds": 6.5,
+            "7 Seconds": 7,
+            "7.5 Seconds": 7.5,
+            "8 Seconds": 8,
+            "8.5 Seconds": 8.5,
+            "9 Seconds": 9,
+            "9.5 Seconds": 9.5,
+            "10 Seconds": 10,
+            "10.5 Seconds": 10.5,
+            "11 Seconds": 11,
+            "11.5 Seconds": 11.5,
+            "12 Seconds": 12,
+            "12.5 Seconds": 12.5,
+            "13 Seconds": 13,
+            "13.5 Seconds": 13.5,
+            "14 Seconds": 14,
+            "14.5 Seconds": 14.5,
+            "15 Seconds": 15,
+            "15.5 Seconds": 15.5,
+            "16 Seconds": 16,
+            "16.5 Seconds": 16.5,
+            "17 Seconds": 17,
+            "17.5 Seconds": 17.5,
+            "18 Seconds": 18,
+            "18.5 Seconds": 18.5,
+            "19 Seconds": 19,
+            "19.5 Seconds": 19.5,
+            "20 Seconds": 20,
+            "20.5 Seconds": 20.5,
+            "21 Seconds": 21,
+            "21.5 Seconds": 21.5,
+            "22 Seconds": 22,
+            "22.5 Seconds": 22.5,
+            "23 Seconds": 23,
+            "23.5 Seconds": 23.5,
+            "24 Seconds": 24,
+            "24.5 Seconds": 24.5,
+            "25 Seconds": 25,
+            "25.5 Seconds": 25.5,
+            "26 Seconds": 26,
+            "26.5 Seconds": 26.5,
+            "27 Seconds": 27,
+            "27.5 Seconds": 27.5,
+            "28 Seconds": 28,
+            "28.5 Seconds": 28.5,
+            "29 Seconds": 29,
+            "29.5 Seconds": 29.5,
+            "30 Seconds": 30
+          },
+          "default": 1
+        }
+      }
     }
   },
 
   "commands": {
-    "Update Values": {
+    "Update Layer Values": {
       "menu": "",
-      "callback": "refreshValues"
+      "callback": "refreshLayerValues"
+    },
+    "Update Module Values": {
+      "menu": "",
+      "callback": "refreshModuleValues"
     },
     "Test": {
       "menu": "",
