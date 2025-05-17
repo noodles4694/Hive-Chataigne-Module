@@ -365,7 +365,7 @@ function moduleValueChanged(value) {
 			sendMessage(message);
 		} else if (value.niceName == "Source IP") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/artnetTimecodeSourceIPAddress","value":"' + value.get() + '"}])"';
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/artnetTimecodeSourceIPAddress","value":"' + value.get() + '"}])';
 			sendMessage(message);
 			script.log(message);
 		} else if (value.niceName == "Glitch Protection") {
@@ -504,10 +504,18 @@ function testCommand() {
 }
 
 function getLatestModuleValues() {
+	// get the latest Play List data
 	var message =
 		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
 		local.name +
 		'~playlist~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
+	// get the latest timexcide cue list data
+	var message =
+		'localSVPatch.GetPatchJSON("/Timecode Cue List",function(val){var ret = "' +
+		local.name +
+		'~tccuelist~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
 	script.log(message);
 	sendMessage(message);
 }
@@ -651,6 +659,8 @@ function dataReceived(data) {
 				updateValue(controlPath, name, type, pathname, value);
 			} else if (parts[1] == "playlist") { // message is a playlist value update
 				updatePlaylistValues(parts[2]);
+			} else if (parts[1] == "tccuelist") { // message is a timecode cue list value update
+				updateTimecodeCueListValues(parts[2]);
 			}
 		}
 	}
@@ -678,6 +688,22 @@ function updatePlaylistValues(jsonData) {
 	local.values.modules.playlist.sendToWorkers.set(playlist.queenWorkerSync);
 	setEnumFromValue(local.values.modules.playlist.targetLayer, playlist.targetLayer);
 	setEnumFromValue(local.values.modules.playlist.transitionTime, playlist.transitionDuration);
+	valuesUpdating = false; // Re-enable value updates
+}
+
+function updateTimecodeCueListValues(jsonData) {
+	valuesUpdating = true; // Prevents infinite loop
+	var tccuelist = JSON.parse(jsonData);
+	local.values.modules.timecodeCueList.layer1Enabled.set(tccuelist.layers[0].useCueList);
+	local.values.modules.timecodeCueList.layer2Enabled.set(tccuelist.layers[1].useCueList);
+	local.values.modules.timecodeCueList.sendToWorkers.set(tccuelist.queenWorkerSync);
+	setEnumFromValue(local.values.modules.timecodeCueList.timecodeClock, tccuelist.clockSource);
+	setEnumFromValue(local.values.modules.timecodeCueList.timecodeOffsets, tccuelist.offsetSource);
+	local.values.modules.timecodeCueList.ignoreAudio.set(tccuelist.ignoreAudio);
+	local.values.modules.timecodeCueList.globalFrameAdjustment.set(tccuelist.globalAdjust);
+	local.values.modules.timecodeCueList.tcRangeFilter.set(tccuelist.useTCRangeFilter);
+	local.values.modules.timecodeCueList.sourceIP.set(tccuelist.artnetTimecodeSourceIPAddress);
+	local.values.modules.timecodeCueList.glitchProtection.set(tccuelist.useTCGlitchProtection);
 	valuesUpdating = false; // Re-enable value updates
 }
 
