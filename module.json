@@ -668,6 +668,66 @@
           "type": "Boolean",
           "default": false
         }
+      },
+      "Timeline": {
+        "type": "Container",
+        "collapsed": true,
+        "Enabled": {
+          "type": "Boolean",
+          "default": false
+        },
+        "Name": {
+          "type": "String",
+          "default": "My Timeline"
+        },
+        "Playmode": {
+          "type": "Enum",
+          "options": {
+            "Stop": "STOP",
+            "Play": "PLAY",
+            "Pause": "PAUSE",
+            "Rewind": "REWIND",
+            "Fast Forward": "FORWARD"
+          },
+          "default": "PLAY"
+        },
+        "Duration": {
+          "type": "Integer",
+          "min": 1,
+          "max": 999999999,
+          "default": 60,
+          "ui": "time"
+        },
+        "Framerate": {
+          "type": "Integer",
+          "min": 1,
+          "max": 60,
+          "default": 30
+        },
+        "Resolution X": {
+          "type": "Integer",
+          "min": 1,
+          "max": 16565,
+          "default": 1920
+        },
+        "Resolution Y": {
+          "type": "Integer",
+          "min": 1,
+          "max": 16565,
+          "default": 1080
+        },
+        "Send To Workers": {
+          "type": "Boolean",
+          "default": true
+        }
+      },
+      "Scheduler": {
+        "type": "Container",
+        "collapsed": true,
+        "Enabled": {
+          "type": "Boolean",
+          "default": false
+        }
       }
     }
   },

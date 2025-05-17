@@ -334,6 +334,39 @@ function moduleValueChanged(value) {
 			return;
 		}
 
+	} else if (parent == "Timeline") {
+		if (value.niceName == "Enabled") {
+			setTimelineEnabled(value.get());
+		} else if (value.niceName == "Send To Workers") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Name") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/title","value":"' + value.get() + '"}])';
+			sendMessage(message);
+		} else if (value.niceName == "Playmode") {
+			script.log("Playmode changed to: " + value.get());
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/playMode","value":"' + value.get() + '"}])';
+			sendMessage(message);
+		} else if (value.niceName == "Duration") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/duration","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Framerate") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/fps","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Resolution X") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/renderResolutionX","value":' + value.get() + "}])";
+			sendMessage(message);
+		} else if (value.niceName == "Resolution Y") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/renderResolutionY","value":"' + value.get() + '"}])';
+			sendMessage(message);
+		}
 	} else if (parent == "Timecode Cue List") {
 		if (value.niceName == "Layer 1 Enabled") {
 			setTCPlaylistEnabled(0, value.get());
@@ -474,6 +507,12 @@ function setPlaylistEnabled(enabled) {
 function setTCPlaylistEnabled(layer, enabled) {
 	var message =
 		'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/layers/' + layer + '/useCueList","value":' + enabled + "}])";
+	sendMessage(message);
+}
+
+function setTimelineEnabled(enabled) {
+	var message =
+		'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/useTimeline","value":' + enabled + "}])";
 	sendMessage(message);
 }
 // Helpers
