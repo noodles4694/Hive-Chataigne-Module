@@ -341,7 +341,7 @@ function moduleValueChanged(value) {
 			var message =
 				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
 			sendMessage(message);
-		} else if (value.niceName == "Name") {
+		} else if (value.niceName == "title") {
 			var message =
 				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/title","value":"' + value.get() + '"}])';
 			sendMessage(message);
@@ -557,6 +557,13 @@ function getLatestModuleValues() {
 		'~tccuelist~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
 	script.log(message);
 	sendMessage(message);
+	// get the latest timeline data
+	var message =
+		'localSVPatch.GetPatchJSON("/Timeline",function(val){var ret = "' +
+		local.name +
+		'~timeline~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
 }
 
 function getLatestLayerValues() {
@@ -700,6 +707,8 @@ function dataReceived(data) {
 				updatePlaylistValues(parts[2]);
 			} else if (parts[1] == "tccuelist") { // message is a timecode cue list value update
 				updateTimecodeCueListValues(parts[2]);
+			} else if (parts[1] == "timeline") { // message is a timeline value update
+				updateTimelineValues(parts[2]);
 			}
 		}
 	}
@@ -743,6 +752,20 @@ function updateTimecodeCueListValues(jsonData) {
 	local.values.modules.timecodeCueList.tcRangeFilter.set(tccuelist.useTCRangeFilter);
 	local.values.modules.timecodeCueList.sourceIP.set(tccuelist.artnetTimecodeSourceIPAddress);
 	local.values.modules.timecodeCueList.glitchProtection.set(tccuelist.useTCGlitchProtection);
+	valuesUpdating = false; // Re-enable value updates
+}
+
+function updateTimelineValues(jsonData) {
+	valuesUpdating = true; // Prevents infinite loop
+	var timeline = JSON.parse(jsonData);
+	local.values.modules.timeline.enabled.set(timeline.useTimeline);
+	setEnumFromValue(local.values.modules.timeline.playmode, timeline.playMode);;
+	local.values.modules.timeline.duration.set(timeline.duration);
+	local.values.modules.timeline.framerate.set(timeline.fps);
+	local.values.modules.timeline.resolutionX.set(timeline.renderResolutionX);
+	local.values.modules.timeline.resolutionY.set(timeline.renderResolutionY);
+	local.values.modules.timeline.sendToWorkers.set(timeline.queenWorkerSync);
+	local.values.modules.timeline.title.set(timeline.title);
 	valuesUpdating = false; // Re-enable value updates
 }
 
