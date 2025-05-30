@@ -294,6 +294,7 @@ var l2ValuePaths = [
 ];
 
 var valuesUpdating = false;
+var playlist = null;
 
 function init() {
 	script.log("Hive Beeblade module init");
@@ -556,6 +557,56 @@ function testCommand() {
 	script.log("Message sent");
 }
 
+function plJumpToRow(row) {
+	// get the latest Play List data
+	var message =
+		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
+		local.name +
+		'~playlist~"+JSON.stringify(val)+"~jtr~' + row + '";UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
+}
+
+function plNextRow() {
+	// get the latest Play List data
+	var message =
+		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
+		local.name +
+		'~playlist~"+JSON.stringify(val)+"~jtn";UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
+}
+
+function plPreviousRow() {
+	// get the latest Play List data
+	var message =
+		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
+		local.name +
+		'~playlist~"+JSON.stringify(val)+"~jtp";UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
+}
+
+function plFirstRow() {
+	// get the latest Play List data
+	var message =
+		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
+		local.name +
+		'~playlist~"+JSON.stringify(val)+"~jtf";UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
+}
+
+function plLastRow() {
+	// get the latest Play List data
+	var message =
+		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
+		local.name +
+		'~playlist~"+JSON.stringify(val)+"~jtl";UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
+}
+
 function getLatestModuleValues() {
 	// get the latest Play List data
 	var message =
@@ -726,15 +777,61 @@ function dataReceived(data) {
 				updateValue(controlPath, name, type, pathname, value);
 			} else if (parts[1] == "playlist") { // message is a playlist value update
 				updatePlaylistValues(parts[2]);
+				if (parts.length == 5 && parts[3] == "jtr") { // jump to row command
+					var row = parseInt(parts[4]);
+					jumpToPlaylistRow(row); // jump to the specified row in the playlist
+				} else if (parts.length == 4 && parts[3] == "jtf") { // jump to first row
+					jumpToPlaylistRow(1); // jump to the first row
+				} else if (parts.length == 4 && parts[3] == "jtl") { // jump to last row
+					jumpToPlaylistRow(playlist.list.length); // jump to the last row
+				} else if (parts.length == 4 && parts[3] == "jtn") { // jump to next row
+					var message =
+						'localSVPatch.GetPatchDouble("/Playlist Control/Playlist Controller 1/Row Index",function(val){var ret = "' +
+						local.name +
+						'~plpos~jtn~"+ val;UDPMsgReturn(ret + "|");})';
+					sendMessage(message);
+				} else if (parts.length == 4 && parts[3] == "jtp") { // jump to previous
+					var message =
+						'localSVPatch.GetPatchDouble("/Playlist Control/Playlist Controller 1/Row Index",function(val){var ret = "' +
+						local.name +
+						'~plpos~jtp~"+ val;UDPMsgReturn(ret + "|");})';
+					sendMessage(message);
+				}
 			} else if (parts[1] == "tccuelist") { // message is a timecode cue list value update
 				updateTimecodeCueListValues(parts[2]);
 			} else if (parts[1] == "timeline") { // message is a timeline value update
 				updateTimelineValues(parts[2]);
 			} else if (parts[1] == "schedule") { // message is a timeline value update
 				updateScheduleValues(parts[2]);
+			} else if (parts[1] == "plpos") { // message is a playlist position update
+				var row = parseInt(parts[3]) + 1;
+				if (parts[2] == "jtn") {
+					row = row + 1; // next row
+					if (row > playlist.list.length) row = 1; // loop if required
+					jumpToPlaylistRow(row); // jump to the specified row in the playlist
+				} else if (parts[2] == "jtp") {
+					row = row - 1; // next row
+					if (row < 1) row = playlist.list.length; // loop if required
+					jumpToPlaylistRow(row); // jump to the specified row in the playlist
+				}
+
 			}
 		}
 	}
+}
+
+function jumpToPlaylistRow(row) {
+
+	if (playlist.list.length == 0) {
+		return; // no playlist to jump to
+	}
+	if (row > playlist.list.length) row = playlist.list.length;// ensure row is within bounds
+	if (row < 1) row = 1; // ensure row is within bounds
+	row = row - 1; // convert to zero-based index
+	var message =
+		'localSVPatch.SetPatchDouble("/Playlist Control/Playlist Controller 1/Play List Next",' + row + ")";
+	script.log(message);
+	sendMessage(message);
 }
 
 function setEnumFromValue(object, value) {
@@ -754,7 +851,7 @@ function getEnumKeyFramValue(object, value) {
 
 function updatePlaylistValues(jsonData) {
 	valuesUpdating = true; // Prevents infinite loop
-	var playlist = JSON.parse(jsonData);
+	playlist = JSON.parse(jsonData);
 	local.values.modules.playlist.enabled.set(playlist.usePlayList);
 	local.values.modules.playlist.sendToWorkers.set(playlist.queenWorkerSync);
 	setEnumFromValue(local.values.modules.playlist.targetLayer, playlist.targetLayer);

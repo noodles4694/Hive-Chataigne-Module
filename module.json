@@ -738,16 +738,40 @@
 
   "commands": {
     "Update Layer Values": {
-      "menu": "",
+      "menu": "Update",
       "callback": "refreshLayerValues"
     },
     "Update Module Values": {
-      "menu": "",
+      "menu": "Update",
       "callback": "refreshModuleValues"
     },
-    "Test": {
-      "menu": "",
-      "callback": "testCommand"
+    "Row X": {
+      "menu": "Playlist",
+      "callback": "plJumpToRow",
+      "parameters": {
+        "Row": {
+          "type": "Integer",
+          "min": 1,
+          "max": 9999,
+          "default": 0
+        }
+      }
+    },
+    "Next Row": {
+      "menu": "Playlist",
+      "callback": "plNextRow"
+    },
+    "Preious Row": {
+      "menu": "Playlist",
+      "callback": "plPreviousRow"
+    },
+    "First Row": {
+      "menu": "Playlist",
+      "callback": "plFirstRow"
+    },
+    "Last Row": {
+      "menu": "Playlist",
+      "callback": "plLastRow"
     }
   }
 }
