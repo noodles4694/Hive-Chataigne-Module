@@ -1295,6 +1295,10 @@ function moduleValueChanged(value) {
 		if (grandParent == "Effects") {
 			if (value.niceName == "Effect") {
 				updateEffectLabels();
+				var layer = parent == "Layer 1" ? 1 : 2;
+				var message =
+					'localSVPatch.SetPatchDouble("/LAYER ' + layer + '/FX1 SELECT/Value",' + value.get() + ")";
+				sendMessage(message);
 			}
 		} else {
 			var paths =
