@@ -406,6 +406,14 @@ function moduleValueChanged(value) {
 				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/useTCGlitchProtection","value":' + value.get() + "}])";
 			sendMessage(message);
 		}
+	} else if (parent == "Scheduler") {
+		if (value.niceName == "Enabled") {
+			setSchedulerEnabled(value.get());
+		} else if (value.niceName == "Send To Workers") {
+			var message =
+				'localSVPatch.UpdatePatchJSON("/Schedule", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
+			sendMessage(message);
+		}
 	}
 	else if (parent == "Layer 1" || parent == "Layer 2") {
 		var paths =
@@ -515,6 +523,12 @@ function setTimelineEnabled(enabled) {
 		'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/useTimeline","value":' + enabled + "}])";
 	sendMessage(message);
 }
+
+function setSchedulerEnabled(enabled) {
+	var message =
+		'localSVPatch.UpdatePatchJSON("/Schedule", [{"op":"replace","path":"/useSchedule","value":' + enabled + "}])";
+	sendMessage(message);
+}
 // Helpers
 function sendMessage(message) {
 	local.send(message + "\n");
@@ -562,6 +576,13 @@ function getLatestModuleValues() {
 		'localSVPatch.GetPatchJSON("/Timeline",function(val){var ret = "' +
 		local.name +
 		'~timeline~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
+	script.log(message);
+	sendMessage(message);
+	// get the latest scheduler data
+	var message =
+		'localSVPatch.GetPatchJSON("/Schedule",function(val){var ret = "' +
+		local.name +
+		'~schedule~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
 	script.log(message);
 	sendMessage(message);
 }
@@ -709,6 +730,8 @@ function dataReceived(data) {
 				updateTimecodeCueListValues(parts[2]);
 			} else if (parts[1] == "timeline") { // message is a timeline value update
 				updateTimelineValues(parts[2]);
+			} else if (parts[1] == "schedule") { // message is a timeline value update
+				updateScheduleValues(parts[2]);
 			}
 		}
 	}
@@ -766,6 +789,14 @@ function updateTimelineValues(jsonData) {
 	local.values.modules.timeline.resolutionY.set(timeline.renderResolutionY);
 	local.values.modules.timeline.sendToWorkers.set(timeline.queenWorkerSync);
 	local.values.modules.timeline.title.set(timeline.title);
+	valuesUpdating = false; // Re-enable value updates
+}
+
+function updateScheduleValues(jsonData) {
+	valuesUpdating = true; // Prevents infinite loop
+	var schedule = JSON.parse(jsonData);
+	local.values.modules.scheduler.enabled.set(schedule.useSchedule);
+	local.values.modules.scheduler.sendToWorkers.set(schedule.queenWorkerSync);
 	valuesUpdating = false; // Re-enable value updates
 }
 

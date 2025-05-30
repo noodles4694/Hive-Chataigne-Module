@@ -727,6 +727,10 @@
         "Enabled": {
           "type": "Boolean",
           "default": false
+        },
+        "Send To Workers": {
+          "type": "Boolean",
+          "default": true
         }
       }
     }
