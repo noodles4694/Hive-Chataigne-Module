@@ -293,871 +293,870 @@ var l2ValuePaths = [
 	},
 ];
 
-
 var fXParameters = {
-	"fx": [
+	fx: [
 		{
-			"effectName": "0 - NONE",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "0 - NONE",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "1 - OLD TV",
-			"param": [
-				{ "paramName": "X POSITION" },
-				{ "paramName": "Y POSITION" },
-				{ "paramName": "X SCALE" },
-				{ "paramName": "Y SCALE" },
-				{ "paramName": "SATURATION" },
-				{ "paramName": "CONTRAST" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "1 - OLD TV",
+			param: [
+				{ paramName: "X POSITION" },
+				{ paramName: "Y POSITION" },
+				{ paramName: "X SCALE" },
+				{ paramName: "Y SCALE" },
+				{ paramName: "SATURATION" },
+				{ paramName: "CONTRAST" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "2 - SEPIA",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "2 - SEPIA",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "3 - FEEDBACK",
-			"param": [
-				{ "paramName": "AMOUNT" },
-				{ "paramName": "SCALE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "3 - FEEDBACK",
+			param: [
+				{ paramName: "AMOUNT" },
+				{ paramName: "SCALE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "4 - BLUR",
-			"param": [
-				{ "paramName": "AMOUNT" },
-				{ "paramName": "QUALITY" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "4 - BLUR",
+			param: [
+				{ paramName: "AMOUNT" },
+				{ paramName: "QUALITY" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "5 - CRYSTALISE",
-			"param": [
-				{ "paramName": "CRYSTAL SIZE" },
-				{ "paramName": "SPEED" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "5 - CRYSTALISE",
+			param: [
+				{ paramName: "CRYSTAL SIZE" },
+				{ paramName: "SPEED" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "6 - FRACTAL SOUP",
-			"param": [
-				{ "paramName": "HUE" },
-				{ "paramName": "SATURATION" },
-				{ "paramName": "BRIGHTNESS" },
-				{ "paramName": "SPEED" },
-				{ "paramName": "MODE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "6 - FRACTAL SOUP",
+			param: [
+				{ paramName: "HUE" },
+				{ paramName: "SATURATION" },
+				{ paramName: "BRIGHTNESS" },
+				{ paramName: "SPEED" },
+				{ paramName: "MODE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "7 - RADAR",
-			"param": [
-				{ "paramName": "SPEED" },
-				{ "paramName": "X POSITION" },
-				{ "paramName": "Y POSITION" },
-				{ "paramName": "SCALE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "7 - RADAR",
+			param: [
+				{ paramName: "SPEED" },
+				{ paramName: "X POSITION" },
+				{ paramName: "Y POSITION" },
+				{ paramName: "SCALE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "8 - PIXELISE",
-			"param": [
-				{ "paramName": "PIXELATION" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "8 - PIXELISE",
+			param: [
+				{ paramName: "PIXELATION" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "9 - SOFT EDGE OVAL",
-			"param": [
-				{ "paramName": "X POSITION" },
-				{ "paramName": "Y POSITION" },
-				{ "paramName": "SIZE X" },
-				{ "paramName": "SIZE Y" },
-				{ "paramName": "SOFTNESS" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "9 - SOFT EDGE OVAL",
+			param: [
+				{ paramName: "X POSITION" },
+				{ paramName: "Y POSITION" },
+				{ paramName: "SIZE X" },
+				{ paramName: "SIZE Y" },
+				{ paramName: "SOFTNESS" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "10 - TILE",
-			"param": [
-				{ "paramName": "HORIZONTAL" },
-				{ "paramName": "VERTICAL" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "10 - TILE",
+			param: [
+				{ paramName: "HORIZONTAL" },
+				{ paramName: "VERTICAL" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "11 - INFINITY ZOOM",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "11 - INFINITY ZOOM",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "12 - DOT GRID",
-			"param": [
-				{ "paramName": "AMOUNT" },
-				{ "paramName": "DOT SIZE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "12 - DOT GRID",
+			param: [
+				{ paramName: "AMOUNT" },
+				{ paramName: "DOT SIZE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "13 - KALEIDOSCOPE",
-			"param": [
-				{ "paramName": "DIVISIONS" },
-				{ "paramName": "ROTATION" },
-				{ "paramName": "ZOOM" },
-				{ "paramName": "X POSITION" },
-				{ "paramName": "Y POSITION" },
-				{ "paramName": "IN ANGLE" },
-				{ "paramName": "ROTATE SPD" },
-				{ "paramName": "X POS SPD" },
-				{ "paramName": "Y POS SPD" },
-				{ "paramName": "IN ANGLE SPD" },
-				{ "paramName": "X POS QTY" },
-				{ "paramName": "Y POS QTY" },
-				{ "paramName": "IN ANGLE QTY" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "13 - KALEIDOSCOPE",
+			param: [
+				{ paramName: "DIVISIONS" },
+				{ paramName: "ROTATION" },
+				{ paramName: "ZOOM" },
+				{ paramName: "X POSITION" },
+				{ paramName: "Y POSITION" },
+				{ paramName: "IN ANGLE" },
+				{ paramName: "ROTATE SPD" },
+				{ paramName: "X POS SPD" },
+				{ paramName: "Y POS SPD" },
+				{ paramName: "IN ANGLE SPD" },
+				{ paramName: "X POS QTY" },
+				{ paramName: "Y POS QTY" },
+				{ paramName: "IN ANGLE QTY" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "14 - MULTI MIRROR",
-			"param": [
-				{ "paramName": "X POSITION" },
-				{ "paramName": "Y POSITION" },
-				{ "paramName": "X OFFSET" },
-				{ "paramName": "Y OFFSET" },
-				{ "paramName": "X MIRROR" },
-				{ "paramName": "Y MIRROR" },
-				{ "paramName": "ROTATE HI" },
-				{ "paramName": "ROTATE LO" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "14 - MULTI MIRROR",
+			param: [
+				{ paramName: "X POSITION" },
+				{ paramName: "Y POSITION" },
+				{ paramName: "X OFFSET" },
+				{ paramName: "Y OFFSET" },
+				{ paramName: "X MIRROR" },
+				{ paramName: "Y MIRROR" },
+				{ paramName: "ROTATE HI" },
+				{ paramName: "ROTATE LO" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "15 - REBELLE DISTORT",
-			"param": [
-				{ "paramName": "SCAN LINES" },
-				{ "paramName": "NOISE" },
-				{ "paramName": "STATIC" },
-				{ "paramName": "FUZZ" },
-				{ "paramName": "RGB" },
-				{ "paramName": "SCAN OPTION" },
-				{ "paramName": "JERK" },
-				{ "paramName": "MOVE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "15 - REBELLE DISTORT",
+			param: [
+				{ paramName: "SCAN LINES" },
+				{ paramName: "NOISE" },
+				{ paramName: "STATIC" },
+				{ paramName: "FUZZ" },
+				{ paramName: "RGB" },
+				{ paramName: "SCAN OPTION" },
+				{ paramName: "JERK" },
+				{ paramName: "MOVE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "16 - 4 POINT WARP",
-			"param": [
-				{ "paramName": "TOP LEFT X" },
-				{ "paramName": "TOP LEFT Y" },
-				{ "paramName": "TOP RIGHT X" },
-				{ "paramName": "TOP RIGHT Y" },
-				{ "paramName": "BOTTOM RIGHT X" },
-				{ "paramName": "BOTTOM RIGHT Y" },
-				{ "paramName": "BOTTOM LEFT X" },
-				{ "paramName": "BOTTOM LEFT Y" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "16 - 4 POINT WARP",
+			param: [
+				{ paramName: "TOP LEFT X" },
+				{ paramName: "TOP LEFT Y" },
+				{ paramName: "TOP RIGHT X" },
+				{ paramName: "TOP RIGHT Y" },
+				{ paramName: "BOTTOM RIGHT X" },
+				{ paramName: "BOTTOM RIGHT Y" },
+				{ paramName: "BOTTOM LEFT X" },
+				{ paramName: "BOTTOM LEFT Y" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "17 - HALF TONE",
-			"param": [
-				{ "paramName": "AMOUNT" },
-				{ "paramName": "ANGLE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "17 - HALF TONE",
+			param: [
+				{ paramName: "AMOUNT" },
+				{ paramName: "ANGLE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "18 - HALF TONE INV",
-			"param": [
-				{ "paramName": "AMOUNT" },
-				{ "paramName": "ANGLE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "18 - HALF TONE INV",
+			param: [
+				{ paramName: "AMOUNT" },
+				{ paramName: "ANGLE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "19 - HALF TONE COL",
-			"param": [
-				{ "paramName": "AMOUNT" },
-				{ "paramName": "ANGLE" },
-				{ "paramName": "OFFSET" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "19 - HALF TONE COL",
+			param: [
+				{ paramName: "AMOUNT" },
+				{ paramName: "ANGLE" },
+				{ paramName: "OFFSET" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "20 - HALF TONE SMP",
-			"param": [
-				{ "paramName": "AMOUNT" },
-				{ "paramName": "ANGLE" },
-				{ "paramName": "OFFSET" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "20 - HALF TONE SMP",
+			param: [
+				{ paramName: "AMOUNT" },
+				{ paramName: "ANGLE" },
+				{ paramName: "OFFSET" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "21 - SWIRL DISTORT",
-			"param": [
-				{ "paramName": "NOISE" },
-				{ "paramName": "SWIRL" },
-				{ "paramName": "TONE" },
-				{ "paramName": "ROTATE SPD" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "21 - SWIRL DISTORT",
+			param: [
+				{ paramName: "NOISE" },
+				{ paramName: "SWIRL" },
+				{ paramName: "TONE" },
+				{ paramName: "ROTATE SPD" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "22 - GLITCH SPLIT",
-			"param": [
-				{ "paramName": "GLITCH" },
-				{ "paramName": "SPLIT" },
-				{ "paramName": "STROBE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "22 - GLITCH SPLIT",
+			param: [
+				{ paramName: "GLITCH" },
+				{ paramName: "SPLIT" },
+				{ paramName: "STROBE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "23 - BURN MELT NOISE",
-			"param": [
-				{ "paramName": "BURN" },
-				{ "paramName": "MELT" },
-				{ "paramName": "NOISE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "23 - BURN MELT NOISE",
+			param: [
+				{ paramName: "BURN" },
+				{ paramName: "MELT" },
+				{ paramName: "NOISE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "24 - SHATTER",
-			"param": [
-				{ "paramName": "CRACK" },
-				{ "paramName": "SHATTER" },
-				{ "paramName": "SIZE" },
-				{ "paramName": "ANIM SPEED" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "24 - SHATTER",
+			param: [
+				{ paramName: "CRACK" },
+				{ paramName: "SHATTER" },
+				{ paramName: "SIZE" },
+				{ paramName: "ANIM SPEED" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "25 - MULTI NOISE",
-			"param": [
-				{ "paramName": "NOISE 1" },
-				{ "paramName": "NOISE 2" },
-				{ "paramName": "CONTRAST" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "25 - MULTI NOISE",
+			param: [
+				{ paramName: "NOISE 1" },
+				{ paramName: "NOISE 2" },
+				{ paramName: "CONTRAST" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "26 - KALEIDO POP",
-			"param": [
-				{ "paramName": "GLOW" },
-				{ "paramName": "KALEIDOSCOPE" },
-				{ "paramName": "SPARKLE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "26 - KALEIDO POP",
+			param: [
+				{ paramName: "GLOW" },
+				{ paramName: "KALEIDOSCOPE" },
+				{ paramName: "SPARKLE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "27 - PRISM MIRAGE",
-			"param": [
-				{ "paramName": "GLOW" },
-				{ "paramName": "CHROMA" },
-				{ "paramName": "REFRACT" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "27 - PRISM MIRAGE",
+			param: [
+				{ paramName: "GLOW" },
+				{ paramName: "CHROMA" },
+				{ paramName: "REFRACT" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "28 - BLOCK PRISM",
-			"param": [
-				{ "paramName": "BLOCK SIZE" },
-				{ "paramName": "CHROMA" },
-				{ "paramName": "BLOCK JUMBLE" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "28 - BLOCK PRISM",
+			param: [
+				{ paramName: "BLOCK SIZE" },
+				{ paramName: "CHROMA" },
+				{ paramName: "BLOCK JUMBLE" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "29 - SQUARE CLOUD",
-			"param": [
-				{ "paramName": "SATURATION" },
-				{ "paramName": "MULTIPLY" },
-				{ "paramName": "GLOW" },
-				{ "paramName": "SPEED" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "29 - SQUARE CLOUD",
+			param: [
+				{ paramName: "SATURATION" },
+				{ paramName: "MULTIPLY" },
+				{ paramName: "GLOW" },
+				{ paramName: "SPEED" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "30 - CIRCLE PARTY",
-			"param": [
-				{ "paramName": "CIRCLE COUNT" },
-				{ "paramName": "GLOW" },
-				{ "paramName": "ROT SPEED" },
-				{ "paramName": "TINT" },
-				{ "paramName": "CIRCLE SIZE" },
-				{ "paramName": "RING COUNT" },
-				{ "paramName": "PHASE" },
-				{ "paramName": "SPACING" },
-				{ "paramName": "OFFSET" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "30 - CIRCLE PARTY",
+			param: [
+				{ paramName: "CIRCLE COUNT" },
+				{ paramName: "GLOW" },
+				{ paramName: "ROT SPEED" },
+				{ paramName: "TINT" },
+				{ paramName: "CIRCLE SIZE" },
+				{ paramName: "RING COUNT" },
+				{ paramName: "PHASE" },
+				{ paramName: "SPACING" },
+				{ paramName: "OFFSET" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "31 - EQ TUNNEL",
-			"param": [
-				{ "paramName": "SPEED" },
-				{ "paramName": "EQ POINTS" },
-				{ "paramName": "ROTATE SPEED" },
-				{ "paramName": "EQ MOTION" },
-				{ "paramName": "SATURATION" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "31 - EQ TUNNEL",
+			param: [
+				{ paramName: "SPEED" },
+				{ paramName: "EQ POINTS" },
+				{ paramName: "ROTATE SPEED" },
+				{ paramName: "EQ MOTION" },
+				{ paramName: "SATURATION" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "32 - ELECTRO PATTERN",
-			"param": [
-				{ "paramName": "SPEED" },
-				{ "paramName": "ITERATIONS" },
-				{ "paramName": "ZOOM" },
-				{ "paramName": "ROTATION SPEED" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "32 - ELECTRO PATTERN",
+			param: [
+				{ paramName: "SPEED" },
+				{ paramName: "ITERATIONS" },
+				{ paramName: "ZOOM" },
+				{ paramName: "ROTATION SPEED" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "33 - 4 POINT MASK",
-			"param": [
-				{ "paramName": "TOP LEFT X" },
-				{ "paramName": "TOP LEFT Y" },
-				{ "paramName": "TOP RIGHT X" },
-				{ "paramName": "TOP RIGHT Y" },
-				{ "paramName": "BOTTOM RIGHT X" },
-				{ "paramName": "BOTTOM RIGHT Y" },
-				{ "paramName": "BOTTOM LEFT X" },
-				{ "paramName": "BOTTOM LEFT Y" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "33 - 4 POINT MASK",
+			param: [
+				{ paramName: "TOP LEFT X" },
+				{ paramName: "TOP LEFT Y" },
+				{ paramName: "TOP RIGHT X" },
+				{ paramName: "TOP RIGHT Y" },
+				{ paramName: "BOTTOM RIGHT X" },
+				{ paramName: "BOTTOM RIGHT Y" },
+				{ paramName: "BOTTOM LEFT X" },
+				{ paramName: "BOTTOM LEFT Y" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "34 - 8 POINT MASK",
-			"param": [
-				{ "paramName": "P1 X" },
-				{ "paramName": "P1 Y" },
-				{ "paramName": "P2 X" },
-				{ "paramName": "P2 Y" },
-				{ "paramName": "P3 X" },
-				{ "paramName": "P3 Y" },
-				{ "paramName": "P4 X" },
-				{ "paramName": "P4 Y" },
-				{ "paramName": "P5 X" },
-				{ "paramName": "P5 Y" },
-				{ "paramName": "P6 X" },
-				{ "paramName": "P6 Y" },
-				{ "paramName": "P7 X" },
-				{ "paramName": "P7 Y" },
-				{ "paramName": "P8 X" },
-				{ "paramName": "P8 Y" }
-			]
+			effectName: "34 - 8 POINT MASK",
+			param: [
+				{ paramName: "P1 X" },
+				{ paramName: "P1 Y" },
+				{ paramName: "P2 X" },
+				{ paramName: "P2 Y" },
+				{ paramName: "P3 X" },
+				{ paramName: "P3 Y" },
+				{ paramName: "P4 X" },
+				{ paramName: "P4 Y" },
+				{ paramName: "P5 X" },
+				{ paramName: "P5 Y" },
+				{ paramName: "P6 X" },
+				{ paramName: "P6 Y" },
+				{ paramName: "P7 X" },
+				{ paramName: "P7 Y" },
+				{ paramName: "P8 X" },
+				{ paramName: "P8 Y" },
+			],
 		},
 		{
-			"effectName": "35 - Effect 35",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "35 - Effect 35",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "36 - Effect 36",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "36 - Effect 36",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "37 - Effect 37",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "37 - Effect 37",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "38 - Effect 38",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "38 - Effect 38",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "39 - Effect 39",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
+			effectName: "39 - Effect 39",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
 		},
 		{
-			"effectName": "40 - Effect 40",
-			"param": [
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" },
-				{ "paramName": "-" }
-			]
-		}
-	]
+			effectName: "40 - Effect 40",
+			param: [
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+				{ paramName: "-" },
+			],
+		},
+	],
 };
 
 var valuesUpdating = false;
@@ -1165,11 +1164,27 @@ var playlist = null;
 
 function init() {
 	script.log("Hive Beeblade module init");
-	local.values.effects.layer1.effect.removeOptions();
-	local.values.effects.layer2.effect.removeOptions();
+	local.values.effects.layer1.effect1.effect.removeOptions();
+	local.values.effects.layer1.effect2.effect.removeOptions();
+	local.values.effects.layer2.effect1.effect.removeOptions();
+	local.values.effects.layer2.effect2.effect.removeOptions();
 	for (i = 0; i < fXParameters.fx.length; i++) {
-		local.values.effects.layer1.effect.addOption(fXParameters.fx[i].effectName, i);
-		local.values.effects.layer2.effect.addOption(fXParameters.fx[i].effectName, i);
+		local.values.effects.layer1.effect1.effect.addOption(
+			fXParameters.fx[i].effectName,
+			i
+		);
+		local.values.effects.layer1.effect2.effect.addOption(
+			fXParameters.fx[i].effectName,
+			i
+		);
+		local.values.effects.layer2.effect1.effect.addOption(
+			fXParameters.fx[i].effectName,
+			i
+		);
+		local.values.effects.layer2.effect2.effect.addOption(
+			fXParameters.fx[i].effectName,
+			i
+		);
 	}
 	updateEffectLabels();
 	getLatestLayerValues();
@@ -1188,6 +1203,7 @@ function moduleValueChanged(value) {
 	if (valuesUpdating) return; // Prevents infinite loop when updating values
 	var parent = value.getParent().niceName;
 	var grandParent = value.getParent().getParent().niceName;
+	var grandgrandparent = value.getParent().getParent().getParent().niceName;
 
 	if (parent == "Playlist") {
 		if (value.niceName == "Enabled") {
@@ -1195,52 +1211,71 @@ function moduleValueChanged(value) {
 			return;
 		} else if (value.niceName == "Send To Workers") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/queenWorkerSync","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 			return;
 		} else if (value.niceName == "Target Layer") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/targetLayer","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/targetLayer","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 			return;
 		} else if (value.niceName == "Transition Time") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/transitionDuration","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/transitionDuration","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 			return;
 		}
-
 	} else if (parent == "Timeline") {
 		if (value.niceName == "Enabled") {
 			setTimelineEnabled(value.get());
 		} else if (value.niceName == "Send To Workers") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/queenWorkerSync","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "title") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/title","value":"' + value.get() + '"}])';
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/title","value":"' +
+				value.get() +
+				'"}])';
 			sendMessage(message);
 		} else if (value.niceName == "Playmode") {
 			script.log("Playmode changed to: " + value.get());
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/playMode","value":"' + value.get() + '"}])';
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/playMode","value":"' +
+				value.get() +
+				'"}])';
 			sendMessage(message);
 		} else if (value.niceName == "Duration") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/duration","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/duration","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "Framerate") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/fps","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/fps","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "Resolution X") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/renderResolutionX","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/renderResolutionX","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "Resolution Y") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/renderResolutionY","value":"' + value.get() + '"}])';
+				'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/renderResolutionY","value":"' +
+				value.get() +
+				'"}])';
 			sendMessage(message);
 		}
 	} else if (parent == "Timecode Cue List") {
@@ -1250,36 +1285,52 @@ function moduleValueChanged(value) {
 			setTCPlaylistEnabled(1, value.get());
 		} else if (value.niceName == "Send To Workers") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/queenWorkerSync","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "Timecode Clock") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/clockSource","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/clockSource","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "Timecode Offsets") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/offsetSource","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/offsetSource","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "Ignore Audio") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/ignoreAudio","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/ignoreAudio","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "Global Frame Adjustment") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/globalAdjust","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/globalAdjust","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "TC Range Filter") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/useTCRangeFilter","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/useTCRangeFilter","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		} else if (value.niceName == "Source IP") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/artnetTimecodeSourceIPAddress","value":"' + value.get() + '"}])';
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/artnetTimecodeSourceIPAddress","value":"' +
+				value.get() +
+				'"}])';
 			sendMessage(message);
 			script.log(message);
 		} else if (value.niceName == "Glitch Protection") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/useTCGlitchProtection","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/useTCGlitchProtection","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		}
 	} else if (parent == "Scheduler") {
@@ -1287,105 +1338,150 @@ function moduleValueChanged(value) {
 			setSchedulerEnabled(value.get());
 		} else if (value.niceName == "Send To Workers") {
 			var message =
-				'localSVPatch.UpdatePatchJSON("/Schedule", [{"op":"replace","path":"/queenWorkerSync","value":' + value.get() + "}])";
+				'localSVPatch.UpdatePatchJSON("/Schedule", [{"op":"replace","path":"/queenWorkerSync","value":' +
+				value.get() +
+				"}])";
 			sendMessage(message);
 		}
-	}
-	else if (parent == "Layer 1" || parent == "Layer 2") {
-		if (grandParent == "Effects") {
-			if (value.niceName == "Effect") {
-				updateEffectLabels();
-				var layer = parent == "Layer 1" ? 1 : 2;
-				var message =
-					'localSVPatch.SetPatchDouble("/LAYER ' + layer + '/FX1 SELECT/Value",' + value.get() + ")";
-				sendMessage(message);
-			}
+	} else if (grandgrandparent == "Effects") {
+		var layer = grandParent == "Layer 1" ? 1 : 2;
+		var fx = parent == "Effect 1" ? 1 : 2;
+		var paramBaseAddress =
+			local.values.effects.getControlAddress() +
+			"/layer" +
+			layer +
+			"/effect" +
+			fx +
+			"/parameter";
+		if (value.niceName == "Effect") {
+			updateEffectLabels();
+			var message =
+				'localSVPatch.SetPatchDouble("/LAYER ' +
+				layer +
+				"/FX" +
+				fx +
+				' SELECT/Value",' +
+				value.get() +
+				")";
+			sendMessage(message);
+		} else if (value.niceName == "Opacity") {
+			var message =
+				'localSVPatch.SetPatchDouble("/LAYER ' +
+				layer +
+				"/FX" +
+				fx +
+				' OPACITY/Value",' +
+				value.get() / 100.0 +
+				")";
+			sendMessage(message);
 		} else {
-			var paths =
-				value.niceName.substring(0, 2) == "L1" ? l1ValuePaths : l2ValuePaths;
+			for (i = 1; i <= 16; i++) {
+				if (
+					value.is(
+						local.values.effects["layer" + layer]["effect" + fx][
+							"parameter" + i
+						]
+					)
+				) {
+					var message =
+						'localSVPatch.SetPatchDouble("/LAYER ' +
+						layer +
+						"/FX" +
+						fx +
+						" PARAM " +
+						i +
+						'/Value",' +
+						value.get() / 100.0 +
+						")";
+					sendMessage(message);
+				}
+			}
+		}
+	} else {
+		var paths =
+			value.niceName.substring(0, 2) == "L1" ? l1ValuePaths : l2ValuePaths;
 
-			for (i = 0; i < paths.length; i++) {
-				var valPath = paths[i];
-				var val = value.get();
-				if (valPath.name === value.niceName) {
-					if (valPath.type == "integer" || valPath.type == "enum") {
-						var message =
-							'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
-						sendMessage(message);
-						return;
-					} else if (valPath.type == "float") {
-						if (value.hasRange()) {
-							var range = value.getRange();
-							if (value.niceName == "L1 Scale" || value.niceName == "L2 Scale") {
-								val = normalizeScaleFromValue(val);
-							} else if (
-								value.niceName == "L1 Playspeed" ||
-								value.niceName == "L2 Playspeed"
-							) {
-								val = normalizePlaySpeedFromValue(val);
-							} else {
-								val = (val - range[0]) / (range[1] - range[0]);
-							}
+		for (i = 0; i < paths.length; i++) {
+			var valPath = paths[i];
+			var val = value.get();
+			if (valPath.name === value.niceName) {
+				if (valPath.type == "integer" || valPath.type == "enum") {
+					var message =
+						'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
+					sendMessage(message);
+					return;
+				} else if (valPath.type == "float") {
+					if (value.hasRange()) {
+						var range = value.getRange();
+						if (value.niceName == "L1 Scale" || value.niceName == "L2 Scale") {
+							val = normalizeScaleFromValue(val);
+						} else if (
+							value.niceName == "L1 Playspeed" ||
+							value.niceName == "L2 Playspeed"
+						) {
+							val = normalizePlaySpeedFromValue(val);
+						} else {
+							val = (val - range[0]) / (range[1] - range[0]);
 						}
-						var message =
-							'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
-						sendMessage(message);
-						return;
-					} else if (valPath.type == "boolean") {
-						var message =
-							'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
-						sendMessage(message);
-					} else if (valPath.type == "point2d") {
-						var vals = value.get();
-						if (value.hasRange()) {
-							var range = value.getRange();
-							vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
-							vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
-						}
-						var message =
-							'localSVPatch.SetPatchDouble("' +
-							valPath.pathx +
-							'",' +
-							vals[0] +
-							")";
-						sendMessage(message);
-						var message =
-							'localSVPatch.SetPatchDouble("' +
-							valPath.pathy +
-							'",' +
-							vals[1] +
-							")";
-						sendMessage(message);
-					} else if (valPath.type == "point3d") {
-						var vals = value.get();
-						if (value.hasRange()) {
-							var range = value.getRange();
-							vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
-							vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
-							vals[2] = (vals[2] - range[0][2]) / (range[1][2] - range[0][2]);
-						}
-						var message =
-							'localSVPatch.SetPatchDouble("' +
-							valPath.pathx +
-							'",' +
-							vals[0] +
-							")";
-						sendMessage(message);
-						var message =
-							'localSVPatch.SetPatchDouble("' +
-							valPath.pathy +
-							'",' +
-							vals[1] +
-							")";
-						sendMessage(message);
-						var message =
-							'localSVPatch.SetPatchDouble("' +
-							valPath.pathz +
-							'",' +
-							vals[2] +
-							")";
-						sendMessage(message);
 					}
+					var message =
+						'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
+					sendMessage(message);
+					return;
+				} else if (valPath.type == "boolean") {
+					var message =
+						'localSVPatch.SetPatchDouble("' + valPath.path + '",' + val + ")";
+					sendMessage(message);
+				} else if (valPath.type == "point2d") {
+					var vals = value.get();
+					if (value.hasRange()) {
+						var range = value.getRange();
+						vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
+						vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
+					}
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathx +
+						'",' +
+						vals[0] +
+						")";
+					sendMessage(message);
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathy +
+						'",' +
+						vals[1] +
+						")";
+					sendMessage(message);
+				} else if (valPath.type == "point3d") {
+					var vals = value.get();
+					if (value.hasRange()) {
+						var range = value.getRange();
+						vals[0] = (vals[0] - range[0][0]) / (range[1][0] - range[0][0]);
+						vals[1] = (vals[1] - range[0][1]) / (range[1][1] - range[0][1]);
+						vals[2] = (vals[2] - range[0][2]) / (range[1][2] - range[0][2]);
+					}
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathx +
+						'",' +
+						vals[0] +
+						")";
+					sendMessage(message);
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathy +
+						'",' +
+						vals[1] +
+						")";
+					sendMessage(message);
+					var message =
+						'localSVPatch.SetPatchDouble("' +
+						valPath.pathz +
+						'",' +
+						vals[2] +
+						")";
+					sendMessage(message);
 				}
 			}
 		}
@@ -1393,7 +1489,7 @@ function moduleValueChanged(value) {
 }
 
 function updateEffectLabels() {
-	var base = local.values.effects.layer1;
+	var base = local.values.effects.layer1.effect1;
 	for (i = 0; i < 16; i++) {
 		var label = fXParameters.fx[base.effect.get()].param[i].paramName;
 		if (label == "-") {
@@ -1401,7 +1497,23 @@ function updateEffectLabels() {
 		}
 		base["parameter" + (i + 1)].setName(label);
 	}
-	base = local.values.effects.layer2;
+	base = local.values.effects.layer1.effect2;
+	for (i = 0; i < 16; i++) {
+		var label = fXParameters.fx[base.effect.get()].param[i].paramName;
+		if (label == "-") {
+			label = "Parameter " + (i + 1);
+		}
+		base["parameter" + (i + 1)].setName(label);
+	}
+	base = local.values.effects.layer2.effect1;
+	for (i = 0; i < 16; i++) {
+		var label = fXParameters.fx[base.effect.get()].param[i].paramName;
+		if (label == "-") {
+			label = "Parameter " + (i + 1);
+		}
+		base["parameter" + (i + 1)].setName(label);
+	}
+	base = local.values.effects.layer2.effect2;
 	for (i = 0; i < 16; i++) {
 		var label = fXParameters.fx[base.effect.get()].param[i].paramName;
 		if (label == "-") {
@@ -1413,25 +1525,35 @@ function updateEffectLabels() {
 
 function setPlaylistEnabled(enabled) {
 	var message =
-		'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/usePlayList","value":' + enabled + "}])";
+		'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/usePlayList","value":' +
+		enabled +
+		"}])";
 	sendMessage(message);
 }
 
 function setTCPlaylistEnabled(layer, enabled) {
 	var message =
-		'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/layers/' + layer + '/useCueList","value":' + enabled + "}])";
+		'localSVPatch.UpdatePatchJSON("/Timecode Cue List", [{"op":"replace","path":"/layers/' +
+		layer +
+		'/useCueList","value":' +
+		enabled +
+		"}])";
 	sendMessage(message);
 }
 
 function setTimelineEnabled(enabled) {
 	var message =
-		'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/useTimeline","value":' + enabled + "}])";
+		'localSVPatch.UpdatePatchJSON("/Timeline", [{"op":"replace","path":"/useTimeline","value":' +
+		enabled +
+		"}])";
 	sendMessage(message);
 }
 
 function setSchedulerEnabled(enabled) {
 	var message =
-		'localSVPatch.UpdatePatchJSON("/Schedule", [{"op":"replace","path":"/useSchedule","value":' + enabled + "}])";
+		'localSVPatch.UpdatePatchJSON("/Schedule", [{"op":"replace","path":"/useSchedule","value":' +
+		enabled +
+		"}])";
 	sendMessage(message);
 }
 // Helpers
@@ -1466,7 +1588,9 @@ function plJumpToRow(row) {
 	var message =
 		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
 		local.name +
-		'~playlist~"+JSON.stringify(val)+"~jtr~' + row + '";UDPMsgReturn(ret + "|"); })';
+		'~playlist~"+JSON.stringify(val)+"~jtr~' +
+		row +
+		'";UDPMsgReturn(ret + "|"); })';
 	script.log(message);
 	sendMessage(message);
 }
@@ -1672,42 +1796,53 @@ function dataReceived(data) {
 		var parts = entry.split("~");
 		if (parts.length > 2) {
 			if (parts[0] != local.name) continue; // message is not for this module
-			if (parts[1] == "hval") { // message is a layer value update
+			if (parts[1] == "hval") {
+				// message is a layer value update
 				var controlPath = parts[2];
 				var name = parts[3];
 				var type = parts[4];
 				var pathname = parts[5];
 				var value = parseFloat(parts[6]);
 				updateValue(controlPath, name, type, pathname, value);
-			} else if (parts[1] == "playlist") { // message is a playlist value update
+			} else if (parts[1] == "playlist") {
+				// message is a playlist value update
 				updatePlaylistValues(parts[2]);
-				if (parts.length == 5 && parts[3] == "jtr") { // jump to row command
+				if (parts.length == 5 && parts[3] == "jtr") {
+					// jump to row command
 					var row = parseInt(parts[4]);
 					jumpToPlaylistRow(row); // jump to the specified row in the playlist
-				} else if (parts.length == 4 && parts[3] == "jtf") { // jump to first row
+				} else if (parts.length == 4 && parts[3] == "jtf") {
+					// jump to first row
 					jumpToPlaylistRow(1); // jump to the first row
-				} else if (parts.length == 4 && parts[3] == "jtl") { // jump to last row
+				} else if (parts.length == 4 && parts[3] == "jtl") {
+					// jump to last row
 					jumpToPlaylistRow(playlist.list.length); // jump to the last row
-				} else if (parts.length == 4 && parts[3] == "jtn") { // jump to next row
+				} else if (parts.length == 4 && parts[3] == "jtn") {
+					// jump to next row
 					var message =
 						'localSVPatch.GetPatchDouble("/Playlist Control/Playlist Controller 1/Row Index",function(val){var ret = "' +
 						local.name +
 						'~plpos~jtn~"+ val;UDPMsgReturn(ret + "|");})';
 					sendMessage(message);
-				} else if (parts.length == 4 && parts[3] == "jtp") { // jump to previous
+				} else if (parts.length == 4 && parts[3] == "jtp") {
+					// jump to previous
 					var message =
 						'localSVPatch.GetPatchDouble("/Playlist Control/Playlist Controller 1/Row Index",function(val){var ret = "' +
 						local.name +
 						'~plpos~jtp~"+ val;UDPMsgReturn(ret + "|");})';
 					sendMessage(message);
 				}
-			} else if (parts[1] == "tccuelist") { // message is a timecode cue list value update
+			} else if (parts[1] == "tccuelist") {
+				// message is a timecode cue list value update
 				updateTimecodeCueListValues(parts[2]);
-			} else if (parts[1] == "timeline") { // message is a timeline value update
+			} else if (parts[1] == "timeline") {
+				// message is a timeline value update
 				updateTimelineValues(parts[2]);
-			} else if (parts[1] == "schedule") { // message is a timeline value update
+			} else if (parts[1] == "schedule") {
+				// message is a timeline value update
 				updateScheduleValues(parts[2]);
-			} else if (parts[1] == "plpos") { // message is a playlist position update
+			} else if (parts[1] == "plpos") {
+				// message is a playlist position update
 				var row = parseInt(parts[3]) + 1;
 				if (parts[2] == "jtn") {
 					row = row + 1; // next row
@@ -1718,22 +1853,22 @@ function dataReceived(data) {
 					if (row < 1) row = playlist.list.length; // loop if required
 					jumpToPlaylistRow(row); // jump to the specified row in the playlist
 				}
-
 			}
 		}
 	}
 }
 
 function jumpToPlaylistRow(row) {
-
 	if (playlist.list.length == 0) {
 		return; // no playlist to jump to
 	}
-	if (row > playlist.list.length) row = playlist.list.length;// ensure row is within bounds
+	if (row > playlist.list.length) row = playlist.list.length; // ensure row is within bounds
 	if (row < 1) row = 1; // ensure row is within bounds
 	row = row - 1; // convert to zero-based index
 	var message =
-		'localSVPatch.SetPatchDouble("/Playlist Control/Playlist Controller 1/Play List Next",' + row + ")";
+		'localSVPatch.SetPatchDouble("/Playlist Control/Playlist Controller 1/Play List Next",' +
+		row +
+		")";
 	script.log(message);
 	sendMessage(message);
 }
@@ -1758,24 +1893,50 @@ function updatePlaylistValues(jsonData) {
 	playlist = JSON.parse(jsonData);
 	local.values.modules.playlist.enabled.set(playlist.usePlayList);
 	local.values.modules.playlist.sendToWorkers.set(playlist.queenWorkerSync);
-	setEnumFromValue(local.values.modules.playlist.targetLayer, playlist.targetLayer);
-	setEnumFromValue(local.values.modules.playlist.transitionTime, playlist.transitionDuration);
+	setEnumFromValue(
+		local.values.modules.playlist.targetLayer,
+		playlist.targetLayer
+	);
+	setEnumFromValue(
+		local.values.modules.playlist.transitionTime,
+		playlist.transitionDuration
+	);
 	valuesUpdating = false; // Re-enable value updates
 }
 
 function updateTimecodeCueListValues(jsonData) {
 	valuesUpdating = true; // Prevents infinite loop
 	var tccuelist = JSON.parse(jsonData);
-	local.values.modules.timecodeCueList.layer1Enabled.set(tccuelist.layers[0].useCueList);
-	local.values.modules.timecodeCueList.layer2Enabled.set(tccuelist.layers[1].useCueList);
-	local.values.modules.timecodeCueList.sendToWorkers.set(tccuelist.queenWorkerSync);
-	setEnumFromValue(local.values.modules.timecodeCueList.timecodeClock, tccuelist.clockSource);
-	setEnumFromValue(local.values.modules.timecodeCueList.timecodeOffsets, tccuelist.offsetSource);
+	local.values.modules.timecodeCueList.layer1Enabled.set(
+		tccuelist.layers[0].useCueList
+	);
+	local.values.modules.timecodeCueList.layer2Enabled.set(
+		tccuelist.layers[1].useCueList
+	);
+	local.values.modules.timecodeCueList.sendToWorkers.set(
+		tccuelist.queenWorkerSync
+	);
+	setEnumFromValue(
+		local.values.modules.timecodeCueList.timecodeClock,
+		tccuelist.clockSource
+	);
+	setEnumFromValue(
+		local.values.modules.timecodeCueList.timecodeOffsets,
+		tccuelist.offsetSource
+	);
 	local.values.modules.timecodeCueList.ignoreAudio.set(tccuelist.ignoreAudio);
-	local.values.modules.timecodeCueList.globalFrameAdjustment.set(tccuelist.globalAdjust);
-	local.values.modules.timecodeCueList.tcRangeFilter.set(tccuelist.useTCRangeFilter);
-	local.values.modules.timecodeCueList.sourceIP.set(tccuelist.artnetTimecodeSourceIPAddress);
-	local.values.modules.timecodeCueList.glitchProtection.set(tccuelist.useTCGlitchProtection);
+	local.values.modules.timecodeCueList.globalFrameAdjustment.set(
+		tccuelist.globalAdjust
+	);
+	local.values.modules.timecodeCueList.tcRangeFilter.set(
+		tccuelist.useTCRangeFilter
+	);
+	local.values.modules.timecodeCueList.sourceIP.set(
+		tccuelist.artnetTimecodeSourceIPAddress
+	);
+	local.values.modules.timecodeCueList.glitchProtection.set(
+		tccuelist.useTCGlitchProtection
+	);
 	valuesUpdating = false; // Re-enable value updates
 }
 
@@ -1783,7 +1944,7 @@ function updateTimelineValues(jsonData) {
 	valuesUpdating = true; // Prevents infinite loop
 	var timeline = JSON.parse(jsonData);
 	local.values.modules.timeline.enabled.set(timeline.useTimeline);
-	setEnumFromValue(local.values.modules.timeline.playmode, timeline.playMode);;
+	setEnumFromValue(local.values.modules.timeline.playmode, timeline.playMode);
 	local.values.modules.timeline.duration.set(timeline.duration);
 	local.values.modules.timeline.framerate.set(timeline.fps);
 	local.values.modules.timeline.resolutionX.set(timeline.renderResolutionX);
@@ -1810,12 +1971,10 @@ function updateValue(path, name, type, pathname, value) {
 		if (controllable.niceName == name) {
 			if (type == "integer" || type == "boolean") {
 				controllable.set(value);
-			}
-			else if (type == "enum") {
+			} else if (type == "enum") {
 				value = getEnumKeyFramValue(controllable, value);
 				controllable.set(value);
-			}
-			else if (type == "float") {
+			} else if (type == "float") {
 				if (name == "L1 Scale" || name == "L2 Scale") {
 					value = calculateScaleFromNormalised(value);
 				} else if (name == "L1 Playspeed" || name == "L2 Playspeed") {
@@ -1827,8 +1986,7 @@ function updateValue(path, name, type, pathname, value) {
 					}
 				}
 				controllable.set(value);
-			}
-			else if (type == "point2d") {
+			} else if (type == "point2d") {
 				var vals = controllable.get();
 				var x = vals[0];
 				var y = vals[1];
@@ -1849,8 +2007,7 @@ function updateValue(path, name, type, pathname, value) {
 					}
 				}
 				controllable.set(x, y);
-			}
-			else if (type == "point3d") {
+			} else if (type == "point3d") {
 				var vals = controllable.get();
 				var x = vals[0];
 				var y = vals[1];
