@@ -1197,6 +1197,10 @@
       "menu": "Update",
       "callback": "refreshLayerValues"
     },
+        "Update Effect Values": {
+      "menu": "Update",
+      "callback": "refreshEffectValues"
+    },
     "Update Module Values": {
       "menu": "Update",
       "callback": "refreshModuleValues"

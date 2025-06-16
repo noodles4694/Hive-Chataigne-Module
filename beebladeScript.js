@@ -1523,6 +1523,17 @@ function updateEffectLabels() {
 	}
 }
 
+function updateEffectLabelsDirect(layer, effect, value) {
+	var base = local.values.effects["layer" + layer]["effect" + effect];
+	for (i = 0; i < 16; i++) {
+		var label = fXParameters.fx[value].param[i].paramName;
+		if (label == "-") {
+			label = "Parameter " + (i + 1);
+		}
+		base["parameter" + (i + 1)].setName(label);
+	}
+}
+
 function setPlaylistEnabled(enabled) {
 	var message =
 		'localSVPatch.UpdatePatchJSON("/Play List", [{"op":"replace","path":"/usePlayList","value":' +
@@ -1569,6 +1580,9 @@ function customCmd(val) {
 
 function refreshLayerValues() {
 	getLatestLayerValues();
+}
+function refreshEffectValues() {
+	getLatestEffectValues();
 }
 
 function refreshModuleValues() {
@@ -1788,6 +1802,70 @@ function getLatestLayerValues() {
 	}
 }
 
+function getLatestEffectValues() {
+	for (layer = 1; layer <= 2; layer++) {
+		for (effect = 1; effect <= 2; effect++) {
+			var message =
+				'localSVPatch.GetPatchDouble("/LAYER ' +
+				layer +
+				"/FX" +
+				effect +
+				' SELECT/Value",function(val){var ret = "' +
+				local.name +
+				"~eval~/effects/layer" +
+				layer +
+				"/effect" +
+				effect +
+				"/effect~enum~" +
+				layer +
+				"," +
+				effect +
+				'~"+val;UDPMsgReturn(ret + "|");})';
+			sendMessage(message);
+			message =
+				'localSVPatch.GetPatchDouble("/LAYER ' +
+				layer +
+				"/FX" +
+				effect +
+				' OPACITY/Value",function(val){var ret = "' +
+				local.name +
+				"~eval~/effects/layer" +
+				layer +
+				"/effect" +
+				effect +
+				"/opacity~float~" +
+				layer +
+				"," +
+				effect +
+				'~"+val;UDPMsgReturn(ret + "|");})';
+			sendMessage(message);
+			for (i = 1; i <= 16; i++) {
+				message =
+					'localSVPatch.GetPatchDouble("/LAYER ' +
+					layer +
+					"/FX" +
+					effect +
+					" PARAM " +
+					i +
+					'/Value",function(val){var ret = "' +
+					local.name +
+					"~eval~/effects/layer" +
+					layer +
+					"/effect" +
+					effect +
+					"/parameter" +
+					i +
+					"~float~" +
+					layer +
+					"," +
+					effect +
+					'~"+val;UDPMsgReturn(ret + "|");})';
+				sendMessage(message);
+			}
+		}
+	}
+}
+
 function dataReceived(data) {
 	var entries = data.split("|");
 	for (var i = 0; i < entries.length; i++) {
@@ -1803,7 +1881,34 @@ function dataReceived(data) {
 				var type = parts[4];
 				var pathname = parts[5];
 				var value = parseFloat(parts[6]);
+
 				updateValue(controlPath, name, type, pathname, value);
+			} else if (parts[1] == "eval") {
+				// message is a layer value update
+				var controlPath = parts[2];
+				var type = parts[3];
+				var pathname = parts[4];
+				var value = parseFloat(parts[5]);
+				var pathnameParts = pathname.split(",");
+				script.log(
+					"Updating value with details: " +
+						controlPath +
+						", " +
+						name +
+						", " +
+						type +
+						", " +
+						pathname +
+						", " +
+						value
+				);
+				updateEffectValue(
+					controlPath,
+					type,
+					value,
+					pathnameParts[0],
+					pathnameParts[1]
+				);
 			} else if (parts[1] == "playlist") {
 				// message is a playlist value update
 				updatePlaylistValues(parts[2]);
@@ -1965,10 +2070,11 @@ function updateScheduleValues(jsonData) {
 function updateValue(path, name, type, pathname, value) {
 	valuesUpdating = true; // Prevents infinite loop
 	var parent = local.values.getChild(path);
+	script.log(JSON.stringify(parent));
 	var controllables = parent.getControllables();
 	for (var j = 0; j < controllables.length; j++) {
 		var controllable = controllables[j];
-		if (controllable.niceName == name) {
+		if (controllable.niceName == name || controllables.length == 1) {
 			if (type == "integer" || type == "boolean") {
 				controllable.set(value);
 			} else if (type == "enum") {
@@ -2039,6 +2145,21 @@ function updateValue(path, name, type, pathname, value) {
 				controllable.set(x, y, z);
 			}
 		}
+	}
+	valuesUpdating = false; // Re-enable value updates
+}
+function updateEffectValue(path, type, value, layer, effect) {
+	valuesUpdating = true; // Prevents infinite loop
+	var controllable = local.values.getChild(path);
+	if (type == "float") {
+		if (controllable.hasRange()) {
+			var range = controllable.getRange();
+			value = range[0] + value * (range[1] - range[0]);
+		}
+		controllable.set(value);
+	} else if (type == "enum") {
+		setEnumFromValue(controllable, value);
+		//updateEffectLabelsDirect(layer, effect, value); // Update the effect labels after changing the effect
 	}
 	valuesUpdating = false; // Re-enable value updates
 }
