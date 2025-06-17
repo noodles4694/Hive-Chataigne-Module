@@ -1490,47 +1490,48 @@ function moduleValueChanged(value) {
 
 function updateEffectLabels() {
 	var base = local.values.effects.layer1.effect1;
-	for (i = 0; i < 16; i++) {
-		var label = fXParameters.fx[base.effect.get()].param[i].paramName;
+	for (p = 0; p < 16; p++) {
+		var label = fXParameters.fx[base.effect.get()].param[p].paramName;
 		if (label == "-") {
-			label = "Parameter " + (i + 1);
+			label = "Parameter " + (p + 1);
 		}
-		base["parameter" + (i + 1)].setName(label);
+		base["parameter" + (p + 1)].setName(label);
 	}
 	base = local.values.effects.layer1.effect2;
-	for (i = 0; i < 16; i++) {
-		var label = fXParameters.fx[base.effect.get()].param[i].paramName;
+	for (p = 0; p < 16; p++) {
+		var label = fXParameters.fx[base.effect.get()].param[p].paramName;
 		if (label == "-") {
-			label = "Parameter " + (i + 1);
+			label = "Parameter " + (p + 1);
 		}
-		base["parameter" + (i + 1)].setName(label);
+		base["parameter" + (p + 1)].setName(label);
 	}
 	base = local.values.effects.layer2.effect1;
-	for (i = 0; i < 16; i++) {
-		var label = fXParameters.fx[base.effect.get()].param[i].paramName;
+	for (p = 0; p < 16; p++) {
+		var label = fXParameters.fx[base.effect.get()].param[p].paramName;
 		if (label == "-") {
-			label = "Parameter " + (i + 1);
+			label = "Parameter " + (p + 1);
 		}
-		base["parameter" + (i + 1)].setName(label);
+		base["parameter" + (p + 1)].setName(label);
 	}
 	base = local.values.effects.layer2.effect2;
-	for (i = 0; i < 16; i++) {
-		var label = fXParameters.fx[base.effect.get()].param[i].paramName;
+	for (p = 0; p < 16; p++) {
+		var label = fXParameters.fx[base.effect.get()].param[p].paramName;
 		if (label == "-") {
-			label = "Parameter " + (i + 1);
+			label = "Parameter " + (p + 1);
 		}
-		base["parameter" + (i + 1)].setName(label);
+		base["parameter" + (p + 1)].setName(label);
 	}
 }
 
-function updateEffectLabelsDirect(layer, effect, value) {
-	var base = local.values.effects["layer" + layer]["effect" + effect];
-	for (i = 0; i < 16; i++) {
-		var label = fXParameters.fx[value].param[i].paramName;
+function updateEffectLabelsDirect(layerNumber, effectNumber, effectValue) {
+	var basePath =
+		local.values.effects["layer" + layerNumber]["effect" + effectNumber];
+	for (p = 0; p < 16; p++) {
+		var label = fXParameters.fx[effectValue].param[p].paramName;
 		if (label == "-") {
-			label = "Parameter " + (i + 1);
+			label = "Parameter " + (p + 1);
 		}
-		base["parameter" + (i + 1)].setName(label);
+		basePath["parameter" + (p + 1)].setName(label);
 	}
 }
 
@@ -1810,23 +1811,6 @@ function getLatestEffectValues() {
 				layer +
 				"/FX" +
 				effect +
-				' SELECT/Value",function(val){var ret = "' +
-				local.name +
-				"~eval~/effects/layer" +
-				layer +
-				"/effect" +
-				effect +
-				"/effect~enum~" +
-				layer +
-				"," +
-				effect +
-				'~"+val;UDPMsgReturn(ret + "|");})';
-			sendMessage(message);
-			message =
-				'localSVPatch.GetPatchDouble("/LAYER ' +
-				layer +
-				"/FX" +
-				effect +
 				' OPACITY/Value",function(val){var ret = "' +
 				local.name +
 				"~eval~/effects/layer" +
@@ -1862,6 +1846,23 @@ function getLatestEffectValues() {
 					'~"+val;UDPMsgReturn(ret + "|");})';
 				sendMessage(message);
 			}
+			message =
+				'localSVPatch.GetPatchDouble("/LAYER ' +
+				layer +
+				"/FX" +
+				effect +
+				' SELECT/Value",function(val){var ret = "' +
+				local.name +
+				"~eval~/effects/layer" +
+				layer +
+				"/effect" +
+				effect +
+				"/effect~enum~" +
+				layer +
+				"," +
+				effect +
+				'~"+val;UDPMsgReturn(ret + "|");})';
+			sendMessage(message);
 		}
 	}
 }
@@ -1890,18 +1891,6 @@ function dataReceived(data) {
 				var pathname = parts[4];
 				var value = parseFloat(parts[5]);
 				var pathnameParts = pathname.split(",");
-				script.log(
-					"Updating value with details: " +
-						controlPath +
-						", " +
-						name +
-						", " +
-						type +
-						", " +
-						pathname +
-						", " +
-						value
-				);
 				updateEffectValue(
 					controlPath,
 					type,
@@ -2070,7 +2059,6 @@ function updateScheduleValues(jsonData) {
 function updateValue(path, name, type, pathname, value) {
 	valuesUpdating = true; // Prevents infinite loop
 	var parent = local.values.getChild(path);
-	script.log(JSON.stringify(parent));
 	var controllables = parent.getControllables();
 	for (var j = 0; j < controllables.length; j++) {
 		var controllable = controllables[j];
@@ -2148,19 +2136,21 @@ function updateValue(path, name, type, pathname, value) {
 	}
 	valuesUpdating = false; // Re-enable value updates
 }
-function updateEffectValue(path, type, value, layer, effect) {
+function updateEffectValue(thePath, type, value, layerNo, effectNo) {
 	valuesUpdating = true; // Prevents infinite loop
-	var controllable = local.values.getChild(path);
+	var control = local.values.getChild(thePath);
 	if (type == "float") {
-		if (controllable.hasRange()) {
-			var range = controllable.getRange();
+		if (control.hasRange()) {
+			var range = control.getRange();
 			value = range[0] + value * (range[1] - range[0]);
 		}
-		controllable.set(value);
+		control.set(value);
 	} else if (type == "enum") {
-		setEnumFromValue(controllable, value);
-		//updateEffectLabelsDirect(layer, effect, value); // Update the effect labels after changing the effect
+		// must be the fx select
+		setEnumFromValue(control, value);
+		updateEffectLabelsDirect(layerNo, effectNo, value); // Update the effect labels after changing the effect
 	}
+
 	valuesUpdating = false; // Re-enable value updates
 }
 
