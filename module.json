@@ -22,7 +22,7 @@
     "Output": {
       "local": false,
       "remotePort": 8083,
-      "remoteHost": "192.168.0.30"
+      "remoteHost": "192.168.1.30"
     }
   },
 
@@ -221,7 +221,7 @@
         },
         "L1 Contrast": {
           "type": "Float",
-          "min": 0,
+          "min": -100,
           "max": 100,
           "default": 0
         },
@@ -457,7 +457,7 @@
         },
         "L2 Contrast": {
           "type": "Float",
-          "min": 0,
+          "min": -100,
           "max": 100,
           "default": 0
         },
@@ -529,454 +529,454 @@
       "Layer 1": {
         "type": "Container",
         "collapsed": true,
-        "Effect 1":{
-          "type":"Container",
+        "Effect 1": {
+          "type": "Container",
           "collapsed": true,
-        "Effect": {
-          "type": "Enum",
-          "options": {},
-          "default": 2
-        },        
-        "Opacity": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
+          "Effect": {
+            "type": "Enum",
+            "options": {},
+            "default": 2
+          },
+          "Opacity": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 1": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 2": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 3": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 4": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 5": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 6": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 7": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 8": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 9": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 10": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 11": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 12": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 13": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 14": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 15": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 16": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          }
         },
-        "Parameter 1": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 2": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 3": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 4": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 5": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 6": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 7": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 8": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 9": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 10": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 11": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 12": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 13": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 14": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 15": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 16": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        }
-      },
-          "Effect 2":{
-          "type":"Container",
+        "Effect 2": {
+          "type": "Container",
           "collapsed": true,
-        "Effect": {
-          "type": "Enum",
-          "options": {},
-          "default": 2
-        },        
-        "Opacity": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 1": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 2": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 3": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 4": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 5": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 6": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 7": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 8": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 9": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 10": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 11": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 12": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 13": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 14": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 15": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 16": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
+          "Effect": {
+            "type": "Enum",
+            "options": {},
+            "default": 2
+          },
+          "Opacity": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 1": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 2": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 3": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 4": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 5": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 6": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 7": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 8": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 9": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 10": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 11": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 12": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 13": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 14": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 15": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 16": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          }
         }
-      }
       },
       "Layer 2": {
         "type": "Container",
         "collapsed": true,
-              "Effect 1":{
-          "type":"Container",
+        "Effect 1": {
+          "type": "Container",
           "collapsed": true,
-        "Effect": {
-          "type": "Enum",
-          "options": {},
-          "default": 2
-        },        
-        "Opacity": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
+          "Effect": {
+            "type": "Enum",
+            "options": {},
+            "default": 2
+          },
+          "Opacity": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 1": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 2": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 3": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 4": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 5": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 6": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 7": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 8": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 9": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 10": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 11": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 12": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 13": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 14": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 15": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 16": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          }
         },
-        "Parameter 1": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 2": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 3": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 4": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 5": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 6": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 7": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 8": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 9": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 10": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 11": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 12": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 13": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 14": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 15": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 16": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        }
-      },
-          "Effect 2":{
-          "type":"Container",
+        "Effect 2": {
+          "type": "Container",
           "collapsed": true,
-        "Effect": {
-          "type": "Enum",
-          "options": {},
-          "default": 2
-        },        
-        "Opacity": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 1": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 2": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 3": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 4": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 5": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 6": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 7": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 8": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 9": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 10": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 11": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 12": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 13": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 14": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 15": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
-        },
-        "Parameter 16": {
-          "type": "Float",
-          "min": 0,
-          "max": 100,
-          "default": 0
+          "Effect": {
+            "type": "Enum",
+            "options": {},
+            "default": 2
+          },
+          "Opacity": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 1": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 2": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 3": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 4": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 5": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 6": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 7": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 8": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 9": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 10": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 11": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 12": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 13": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 14": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 15": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          },
+          "Parameter 16": {
+            "type": "Float",
+            "min": 0,
+            "max": 100,
+            "default": 0
+          }
         }
-      }
       }
     },
     "Modules": {
@@ -1197,7 +1197,7 @@
       "menu": "Update",
       "callback": "refreshLayerValues"
     },
-        "Update Effect Values": {
+    "Update Effect Values": {
       "menu": "Update",
       "callback": "refreshEffectValues"
     },
