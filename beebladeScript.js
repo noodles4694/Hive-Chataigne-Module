@@ -1169,7 +1169,6 @@ var fxParameterControlPaths = [];
 
 function init() {
 	script.log("Hive Beeblade module init");
-	script.setUpdateRate(1); // Set update rate to 1 per second
 	// store the effect parameter controls so they can be updated quickly later
 	for (var layer = 1; layer <= 2; layer++) {
 		for (var effect = 1; effect <= 2; effect++) {
@@ -1186,6 +1185,12 @@ function init() {
 			}
 		}
 	}
+	valuesUpdating = false;
+	playlist = null;
+	autoUpdateLayers = local.parameters.autoUpdateLayers.get();
+	autoUpdateEffects = local.parameters.autoUpdateEffects.get();
+	autoUpdateModules = local.parameters.autoUpdateModules.get();
+	script.setUpdateRate(local.parameters.updateRateHz.get()); // Set update rate based on parameter
 	// Initialize module parameters
 	local.values.effects.layer1.effect1.effect.removeOptions();
 	local.values.effects.layer1.effect2.effect.removeOptions();
@@ -1708,28 +1713,24 @@ function getLatestModuleValues() {
 		'localSVPatch.GetPatchJSON("/Play List",function(val){var ret = "' +
 		local.name +
 		'~playlist~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
-	script.log(message);
 	sendMessage(message);
 	// get the latest timexcide cue list data
 	var message =
 		'localSVPatch.GetPatchJSON("/Timecode Cue List",function(val){var ret = "' +
 		local.name +
 		'~tccuelist~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
-	script.log(message);
 	sendMessage(message);
 	// get the latest timeline data
 	var message =
 		'localSVPatch.GetPatchJSON("/Timeline",function(val){var ret = "' +
 		local.name +
 		'~timeline~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
-	script.log(message);
 	sendMessage(message);
 	// get the latest scheduler data
 	var message =
 		'localSVPatch.GetPatchJSON("/Schedule",function(val){var ret = "' +
 		local.name +
 		'~schedule~"+JSON.stringify(val);UDPMsgReturn(ret + "|"); })';
-	script.log(message);
 	sendMessage(message);
 }
 
