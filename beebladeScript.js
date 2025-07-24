@@ -1195,15 +1195,15 @@ function init() {
 }
 
 function update(deltaTime) {
-	//update layer values
+	//update layer values if requested
 	if (autoUpdateLayers) {
 		refreshLayerValues();
 	}
-	//update effects
+	//update effects if requested
 	if (autoUpdateEffects) {
 		refreshEffectValues();
 	}
-	//update modules
+	//update modules if requested
 	if (autoUpdateModules) {
 		refreshModuleValues();
 	}
@@ -1616,6 +1616,8 @@ function refreshLayerValues() {
 }
 function refreshEffectValues() {
 	getLatestEffectValues();
+	util.delayThreadMS(200);
+	getLatestEffectParameterValues();
 }
 
 function refreshModuleValues() {
@@ -1835,10 +1837,11 @@ function getLatestLayerValues() {
 	}
 }
 
-function getLatestEffectValues() {
+function getLatestEffectParameterValues() {
+	var message = "";
 	for (layer = 1; layer <= 2; layer++) {
 		for (effect = 1; effect <= 2; effect++) {
-			var message = "";
+
 			// get effect parameter values
 			for (i = 1; i <= 16; i++) {
 				message =
@@ -1881,6 +1884,15 @@ function getLatestEffectValues() {
 				effect +
 				'~"+val;UDPMsgReturn(ret + "|");})';
 			sendMessage(message);
+		}
+	}
+}
+
+function getLatestEffectValues() {
+	var message = "";
+	for (layer = 1; layer <= 2; layer++) {
+		for (effect = 1; effect <= 2; effect++) {
+
 			// get effect select value
 			message =
 				'localSVPatch.GetPatchDouble("/LAYER ' +
