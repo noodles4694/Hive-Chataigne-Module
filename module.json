@@ -29,6 +29,24 @@
   "parameters": {
     "Device IP": {
       "type": "String"
+    },
+    "Auto Update Layers": {
+      "type": "Boolean",
+      "default": false
+    },
+    "Auto Update Modules": {
+      "type": "Boolean",
+      "default": false
+    },
+    "Auto Update Effects": {
+      "type": "Boolean",
+      "default": false
+    },
+    "Update Rate Hz": {
+      "type": "Integer",
+      "min": 1,
+      "max": 25,
+      "default": 1
     }
   },
 

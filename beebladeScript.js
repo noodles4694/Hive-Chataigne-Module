@@ -1161,9 +1161,13 @@ var fXParameters = {
 
 var valuesUpdating = false;
 var playlist = null;
+var autoUpdateLayers = false;
+var autoUpdateEffects = false;
+var autoUpdateModules = false;
 
 function init() {
 	script.log("Hive Beeblade module init");
+	script.setUpdateRate(1); // Set update rate to 1 per second
 	local.values.effects.layer1.effect1.effect.removeOptions();
 	local.values.effects.layer1.effect2.effect.removeOptions();
 	local.values.effects.layer2.effect1.effect.removeOptions();
@@ -1190,12 +1194,40 @@ function init() {
 	getLatestLayerValues();
 }
 
+function update(deltaTime) {
+	//update layer values
+	if (autoUpdateLayers) {
+		refreshLayerValues();
+	}
+	//update effects
+	if (autoUpdateEffects) {
+		refreshEffectValues();
+	}
+	//update modules
+	if (autoUpdateModules) {
+		refreshModuleValues();
+	}
+
+}
+
 function moduleParameterChanged(param) {
 	script.log(param.name + " parameter changed, new value: " + param.get());
 	if (param.name === "deviceIP") {
 		local.parameters.output.remoteHost.set(param.get());
 		script.log("Device IP changed to: " + param.get());
 		refreshLayerValues();
+	} else if (param.name === "autoUpdateLayers") {
+		autoUpdateLayers = param.get();
+		script.log("Auto update layers set to: " + autoUpdateLayers);
+	} else if (param.name === "autoUpdateEffects") {
+		autoUpdateEffects = param.get();
+		script.log("Auto update effects set to: " + autoUpdateEffects);
+	} else if (param.name === "autoUpdateModules") {
+		autoUpdateModules = param.get();
+		script.log("Auto update modules set to: " + autoUpdateModules);
+	} else if (param.name === "updateRateHz") {
+		script.setUpdateRate(param.get()); // Update rate in seconds
+		script.log("Update rate set to: " + param.get() + " Hz");
 	}
 }
 
@@ -1379,7 +1411,7 @@ function moduleValueChanged(value) {
 				if (
 					value.is(
 						local.values.effects["layer" + layer]["effect" + fx][
-							"parameter" + i
+						"parameter" + i
 						]
 					)
 				) {
@@ -1806,23 +1838,8 @@ function getLatestLayerValues() {
 function getLatestEffectValues() {
 	for (layer = 1; layer <= 2; layer++) {
 		for (effect = 1; effect <= 2; effect++) {
-			var message =
-				'localSVPatch.GetPatchDouble("/LAYER ' +
-				layer +
-				"/FX" +
-				effect +
-				' OPACITY/Value",function(val){var ret = "' +
-				local.name +
-				"~eval~/effects/layer" +
-				layer +
-				"/effect" +
-				effect +
-				"/opacity~float~" +
-				layer +
-				"," +
-				effect +
-				'~"+val;UDPMsgReturn(ret + "|");})';
-			sendMessage(message);
+			var message = "";
+			// get effect parameter values
 			for (i = 1; i <= 16; i++) {
 				message =
 					'localSVPatch.GetPatchDouble("/LAYER ' +
@@ -1846,6 +1863,25 @@ function getLatestEffectValues() {
 					'~"+val;UDPMsgReturn(ret + "|");})';
 				sendMessage(message);
 			}
+			// get effect opacity value
+			message =
+				'localSVPatch.GetPatchDouble("/LAYER ' +
+				layer +
+				"/FX" +
+				effect +
+				' OPACITY/Value",function(val){var ret = "' +
+				local.name +
+				"~eval~/effects/layer" +
+				layer +
+				"/effect" +
+				effect +
+				"/opacity~float~" +
+				layer +
+				"," +
+				effect +
+				'~"+val;UDPMsgReturn(ret + "|");})';
+			sendMessage(message);
+			// get effect select value
 			message =
 				'localSVPatch.GetPatchDouble("/LAYER ' +
 				layer +
@@ -1868,6 +1904,7 @@ function getLatestEffectValues() {
 }
 
 function dataReceived(data) {
+	script.log("Data received: " + data);
 	var entries = data.split("|");
 	for (var i = 0; i < entries.length; i++) {
 		var entry = entries[i];
@@ -2139,6 +2176,7 @@ function updateValue(path, name, type, pathname, value) {
 function updateEffectValue(thePath, type, value, layerNo, effectNo) {
 	valuesUpdating = true; // Prevents infinite loop
 	var control = local.values.getChild(thePath);
+	script.log("Updating effect value: " + thePath + " with value: " + value);
 	if (type == "float") {
 		if (control.hasRange()) {
 			var range = control.getRange();
