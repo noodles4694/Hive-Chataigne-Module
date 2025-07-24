@@ -1,12 +1,12 @@
 {
   "name": "Hive Beeblade",
   "type": "UDP",
-  "path": "Software",
+  "path": "Hardware",
 
   "version": "1.0.0",
   "description": "A module for controlling Hive Beeblade, Beebox or Nexus media engines",
   "url": "https://github.com/noodles4694/Hive-Chataigne-Module",
-  "downloadURL": "https://github.com/tommag/Sample-Chataigne-module/archive/master.zip",
+  "downloadURL": "https://github.com/noodles4694/Hive-Chataigne-Module/tree/main/archive",
 
   "hasInput": true,
   "hasOutput": true,
@@ -22,7 +22,7 @@
     "Output": {
       "local": false,
       "remotePort": 8083,
-      "remoteHost": "192.168.1.30"
+      "remoteHost": "0.0.0.0"
     }
   },
 

@@ -1169,6 +1169,9 @@ var fxParameterControlPaths = [];
 
 function init() {
 	script.log("Hive Beeblade module init");
+	local.parameters.output.remoteHost.set(local.parameters.deviceIP.get());
+	script.log("Device IP changed to: " + local.parameters.deviceIP.get());
+	refreshLayerValues();
 	// store the effect parameter controls so they can be updated quickly later
 	for (var layer = 1; layer <= 2; layer++) {
 		for (var effect = 1; effect <= 2; effect++) {
@@ -1216,6 +1219,8 @@ function init() {
 	}
 	updateEffectLabels();
 	getLatestLayerValues();
+	refreshEffectValues();
+	refreshModuleValues();
 }
 
 function update(deltaTime) {
