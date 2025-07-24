@@ -1164,10 +1164,29 @@ var playlist = null;
 var autoUpdateLayers = false;
 var autoUpdateEffects = false;
 var autoUpdateModules = false;
+var fxParameterControls = [];
+var fxParameterControlPaths = [];
 
 function init() {
 	script.log("Hive Beeblade module init");
 	script.setUpdateRate(1); // Set update rate to 1 per second
+	// store the effect parameter controls so they can be updated quickly later
+	for (var layer = 1; layer <= 2; layer++) {
+		for (var effect = 1; effect <= 2; effect++) {
+			var effectControl = local.values.effects["layer" + layer]["effect" + effect];
+			var opacityControl = effectControl["opacity"];
+			fxParameterControls.push(opacityControl);
+			var path = "/effects/layer" + layer + "/effect" + effect + "/opacity";
+			fxParameterControlPaths.push(path);
+			for (var parameter = 1; parameter <= 16; parameter++) {
+				paramControl = effectControl["parameter" + parameter];
+				fxParameterControls.push(paramControl);
+				path = "/effects/layer" + layer + "/effect" + effect + "/parameter" + parameter;
+				fxParameterControlPaths.push(path);
+			}
+		}
+	}
+	// Initialize module parameters
 	local.values.effects.layer1.effect1.effect.removeOptions();
 	local.values.effects.layer1.effect2.effect.removeOptions();
 	local.values.effects.layer2.effect1.effect.removeOptions();
@@ -1615,9 +1634,8 @@ function refreshLayerValues() {
 	getLatestLayerValues();
 }
 function refreshEffectValues() {
-	getLatestEffectValues();
-	util.delayThreadMS(200);
 	getLatestEffectParameterValues();
+	getLatestEffectValues();
 }
 
 function refreshModuleValues() {
@@ -1916,7 +1934,6 @@ function getLatestEffectValues() {
 }
 
 function dataReceived(data) {
-	script.log("Data received: " + data);
 	var entries = data.split("|");
 	for (var i = 0; i < entries.length; i++) {
 		var entry = entries[i];
@@ -1934,7 +1951,7 @@ function dataReceived(data) {
 
 				updateValue(controlPath, name, type, pathname, value);
 			} else if (parts[1] == "eval") {
-				// message is a layer value update
+				// message is an effect value update
 				var controlPath = parts[2];
 				var type = parts[3];
 				var pathname = parts[4];
@@ -2187,9 +2204,10 @@ function updateValue(path, name, type, pathname, value) {
 }
 function updateEffectValue(thePath, type, value, layerNo, effectNo) {
 	valuesUpdating = true; // Prevents infinite loop
-	var control = local.values.getChild(thePath);
-	script.log("Updating effect value: " + thePath + " with value: " + value);
+	var control = undefined;
 	if (type == "float") {
+		var index = fxParameterControlPaths.indexOf(thePath);
+		control = fxParameterControls[index];
 		if (control.hasRange()) {
 			var range = control.getRange();
 			value = range[0] + value * (range[1] - range[0]);
@@ -2197,6 +2215,7 @@ function updateEffectValue(thePath, type, value, layerNo, effectNo) {
 		control.set(value);
 	} else if (type == "enum") {
 		// must be the fx select
+		control = local.values.getChild(thePath);
 		setEnumFromValue(control, value);
 		updateEffectLabelsDirect(layerNo, effectNo, value); // Update the effect labels after changing the effect
 	}
